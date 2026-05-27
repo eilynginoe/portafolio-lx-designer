@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eilyn Ginoe · Diseñadora de Experiencias de Aprendizaje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F5F6F2;
+      color: #1A2E18;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOKENS ── */
+    :root {
+      --ink: #080F0A;
+      --bg: #F5F6F2;
+      --bg-sage: #EAF0E6;
+      --bg-dark: #0D1E10;
+      --bg-darker: #080F0A;
+      --bg-gold: #F8F4E8;
+      --selva: #1A5C35;
+      --selva-lt: #C0E8D0;
+      --selva-mid: #A8D0B4;
+      --selva-dim: #4A6850;
+      --gold: #9A7010;
+      --gold-lt: #C9A84C;
+      --gold-bg: rgba(154, 112, 16, 0.12);
+      --border: #C8D8C0;
+      --border-dk: #1E3820;
+      --muted: #5A6858;
+      --hint: #7A9870;
+      --max: 1100px;
+      --pad: clamp(24px, 5vw, 80px);
+    }
+
+    /* ── CONTAINER ── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    /* ── UTILITIES ── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow-line {
+      width: 32px;
+      height: 0.5px;
+      background: var(--selva);
+      flex-shrink: 0;
+    }
+
+    .eyebrow-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 246, 242, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      height: 88px;
+    }
+
+    .nav .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--selva);
+    }
+
+    .nav-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 30px;
+      background: transparent;
+      color: var(--selva);
+      border: 1px solid var(--selva);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      background: var(--selva);
+      color: var(--selva-lt);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg);
+      min-height: 760px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-blob {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-52%);
+      width: min(560px, 50vw);
+      height: min(640px, 90vh);
+      background: #D8E8D2;
+      border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+      opacity: 0.5;
+      pointer-events: none;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+
+    @keyframes blobFloat {
+
+      0%,
+      100% {
+        transform: translateY(-52%) scale(1);
+      }
+
+      50% {
+        transform: translateY(-55%) scale(1.02);
+      }
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag-line {
+      width: 32px;
+      height: 0.5px;
+      background: var(--selva);
+    }
+
+    .hero-tag-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
+
+    .hero-title {
+      line-height: 0.95;
+      margin-bottom: 6px;
+    }
+
+    .t-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(64px, 7.5vw, 108px);
+      color: var(--ink);
+      display: block;
+    }
+
+    .t-bold {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 5vw, 68px);
+      color: var(--selva);
+      display: block;
+      letter-spacing: -1.5px;
+    }
+
+    .t-gold {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(56px, 6.5vw, 92px);
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+      max-width: 460px;
+      margin: 28px 0 40px;
+    }
+
+    .hero-sub strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: 260px;
+      height: 64px;
+      justify-content: center;
+      background: var(--selva);
+      color: var(--selva-lt);
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-pill:hover {
+      opacity: 0.88;
+    }
+
+    .cta-ghost {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .fcard {
+      background: rgba(255, 255, 255, 0.86);
+      border: 0.5px solid rgba(74, 90, 72, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      transition: border-color 0.2s;
+    }
+
+    .fcard:hover {
+      border-color: var(--selva);
+    }
+
+    .fcard-dot {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 10px;
+    }
+
+    .fcard-dot::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--selva);
+      display: block;
+    }
+
+    .fcard-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .fcard-body {
+      font-size: 11px;
+      color: var(--hint);
+      line-height: 1.55;
+    }
+
+    .fcard-gold {
+      background: rgba(255, 252, 240, 0.92);
+      border: 0.5px solid rgba(154, 112, 16, 0.22);
+      border-radius: 14px;
+      padding: 16px 22px;
+      margin-left: 28px;
+    }
+
+    .fg-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 42px;
+      color: var(--gold);
+      line-height: 1.0;
+    }
+
+    .fg-num span {
+      font-size: 20px;
+      color: var(--gold-lt);
+    }
+
+    .fg-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #A08030;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: var(--pad);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scroll-line {
+      width: 36px;
+      height: 0.5px;
+      background: var(--selva);
+    }
+
+    .scroll-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
+
+    /* ── DARK BAND ── */
+    .dark-band {
+      background: var(--bg-dark);
+    }
+
+    .dark-band .wrap {
+      padding-top: 56px;
+      padding-bottom: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .db {
+      padding: 0 36px;
+      border-left: 0.5px solid var(--border-dk);
+    }
+
+    .db:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .db:last-child {
+      padding-right: 0;
+    }
+
+    .db-n {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #2A5A30;
+      margin-bottom: 14px;
+    }
+
+    .db-tg {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 24px;
+      color: #C8E8D0;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .db-td {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .db-b {
+      font-size: 12px;
+      line-height: 1.75;
+      color: #A8C8B0;
+    }
+
+    /* ── MÉTODO ── */
+    .method {
+      background: var(--bg);
+    }
+
+    .method .wrap {
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+
+    .method-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+
+    }
+
+    .method-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .method-title span {
+      color: var(--gold);
+    }
+
+    .method-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+    }
+
+    .method-body strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .method-q-card {
+      background: var(--bg-dark);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 12px;
+    }
+
+    .mq-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2A5A30;
+      margin-bottom: 10px;
+    }
+
+    .mq-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 19px;
+      color: #A8D0B4;
+      line-height: 1.35;
+    }
+
+    .mq-no {
+      background: var(--bg-gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.2);
+    }
+
+    .mq-no .mq-label {
+      color: #8A6010;
+    }
+
+    .mq-no .mq-text {
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    /* steps */
+    .steps {
+      padding-bottom: 80px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+    }
+
+    .step:last-child .s-conn {
+      display: none;
+    }
+
+    .s-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .s-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .s-conn {
+      width: 0.5px;
+      flex: 1;
+      min-height: 16px;
+      margin: 6px 0;
+    }
+
+    .s-card {
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin: 0 0 12px;
+    }
+
+    .n1 {
+      background: var(--selva);
+      color: var(--selva-lt);
+    }
+
+    .c1-conn {
+      background: var(--border);
+    }
+
+    .c1 {
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+    }
+
+    .n2 {
+      background: var(--gold);
+      color: #F0E8D0;
+    }
+
+    .c2-conn {
+      background: rgba(154, 112, 16, 0.2);
+    }
+
+    .c2 {
+      background: var(--bg-gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.2);
+    }
+
+    .n3 {
+      background: var(--selva);
+      color: var(--selva-lt);
+    }
+
+    .c3 {
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+    }
+
+    .n4 {
+      background: var(--ink);
+      color: var(--selva-mid);
+    }
+
+    .c4 {
+      background: var(--bg-dark);
+      border: 0.5px solid var(--border-dk);
+    }
+
+    .s-tag-step {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .st-green {
+      color: #3A6A48;
+    }
+
+    .st-gold {
+      color: #8A6010;
+    }
+
+    .st-dk {
+      color: #3A6A48;
+    }
+
+    .s-title-step {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .stt-dark {
+      color: var(--ink);
+    }
+
+    .stt-light {
+      color: var(--selva-mid);
+    }
+
+    .s-body-step {
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .sb-green {
+      color: #3A4A38;
+    }
+
+    .sb-gold {
+      color: #4A3A18;
+    }
+
+    .sb-dk {
+      color: var(--selva-dim);
+    }
+
+    .s-q {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    .sq-green {
+      background: rgba(26, 92, 53, 0.08);
+      color: var(--ink);
+    }
+
+    .sq-gold {
+      background: rgba(154, 112, 16, 0.08);
+      color: #3A2A08;
+    }
+
+    .sq-dk {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--selva-mid);
+    }
+
+    .s-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .s-pill {
+      font-size: 10px;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .sp-green {
+      background: rgba(26, 92, 53, 0.1);
+      color: #2A5A30;
+      border: 0.5px solid var(--border);
+    }
+
+    .sp-gold {
+      background: rgba(154, 112, 16, 0.1);
+      color: var(--gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.3);
+    }
+
+    .sp-dk {
+      background: rgba(255, 255, 255, 0.06);
+      color: #6A9878;
+      border: 0.5px solid var(--border-dk);
+    }
+
+    .bisagra {
+      margin: 0 0 12px 56px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--bg-gold);
+      border: 1px dashed rgba(154, 112, 16, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .bisagra-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F0E8D0;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+
+    .bisagra-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      color: #8A6010;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+    }
+
+    .bisagra-text strong {
+      color: #5A4010;
+    }
+
+    /* ── PROYECTOS ── */
+    .projects {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .projects .wrap {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .proj-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .proj-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .proj-title span {
+      color: var(--gold);
+    }
+
+    .proj-sub {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--hint);
+      max-width: 280px;
+      text-align: right;
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .proj-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .proj-card:hover {
+      border-color: var(--selva);
+      transform: translateY(-3px);
+    }
+
+    .pc-img {
+      height: 180px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .pc-img-1 {
+      background: #0D1E10;
+    }
+
+    .pc-img-2 {
+      background: #1A2E18;
+    }
+
+    .pc-img-3 {
+      background: #1C1C1E;
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .pb-1 {
+      background: rgba(154, 112, 16, 0.2);
+      color: var(--gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.3);
+    }
+
+    .pb-2 {
+      background: rgba(26, 92, 53, 0.2);
+      color: #7ABD90;
+      border: 0.5px solid rgba(26, 92, 53, 0.3);
+    }
+
+    .pb-3 {
+      background: rgba(200, 200, 210, 0.1);
+      color: #A8A8B8;
+      border: 0.5px solid rgba(200, 200, 210, 0.2);
+    }
+
+    .pc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 0.95;
+      color: #F5F6F2;
+    }
+
+    .pcn-1 {
+      font-size: 40px;
+    }
+
+    .pcn-1 span {
+      color: var(--gold);
+    }
+
+    .pcn-2 {
+      font-size: 34px;
+    }
+
+    .pcn-2 span {
+      color: #7ABD90;
+    }
+
+    .pcn-3 {
+      font-size: 34px;
+    }
+
+    .pcn-3 span {
+      color: var(--gold-lt);
+    }
+
+    .pc-body {
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pc-problem {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pc-problem::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--selva);
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .pc-ttl {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .pc-desc {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 14px;
+    }
+
+    .pc-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .pc-tag {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--bg-sage);
+      color: #2A5A30;
+      border: 0.5px solid var(--border);
+    }
+
+    .pc-tag-gold {
+      background: var(--bg-gold);
+      color: var(--gold);
+      border-color: rgba(154, 112, 16, 0.2);
+    }
+
+    .pc-doc-badge{
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 1rem;
+  padding: .4rem .8rem;
+
+  border-radius: 999px;
+
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: #9f8a5b;
+
+  background: rgba(159,138,91,.08);
+  border: 1px solid rgba(159,138,91,.16);
+}
+
+    .pc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 0.5px solid #E0E8DC;
+    }
+
+    .pc-bloqueo {
+      font-size: 11px;
+      color: var(--hint);
+      font-style: italic;
+    }
+
+    .pc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--selva);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .proj-note {
+      margin-top: 24px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pn-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--selva);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--selva-lt);
+      flex-shrink: 0;
+      font-size: 15px;
+    }
+
+    .pn-text {
+      font-size: 12px;
+      line-height: 1.65;
+      color: #3A4A38;
+    }
+
+    .pn-text strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ── SOBRE MÍ ── */
+    .about {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .about .wrap {
+      padding-top: 80px;
+      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-logo-wrap {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin-bottom: 28px;
+    }
+
+    .about-logo-ring {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .about-logo-ring img {
+      width: 164px;
+      height: 164px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .about-logo-tag {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--bg);
+      padding: 3px 12px;
+      color: var(--gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.3);
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .astat {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .astat:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .astat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 34px;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .astat-num span {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .astat-label {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .astat-label strong {
+      font-weight: 600;
+      color: var(--ink);
+      display: block;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .atag {
+      font-size: 10px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border);
+      color: #3A5A38;
+      background: var(--bg-sage);
+    }
+
+    .atag-gold {
+      background: var(--bg-gold);
+      color: var(--gold);
+      border-color: rgba(154, 112, 16, 0.25);
+    }
+
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: var(--ink);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .about-title span {
+      color: var(--gold);
+    }
+
+    .about-p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #4A5A48;
+      margin-bottom: 18px;
+    }
+
+    .about-p strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .about-thesis {
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: var(--bg-dark);
+      margin-bottom: 28px;
+    }
+
+    .at-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2A5A30;
+      margin-bottom: 8px;
+    }
+
+    .at-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 22px;
+      color: #F5F6F2;
+      line-height: 1.3;
+    }
+
+    .at-text span {
+      color: var(--gold);
+    }
+
+    .about-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-pill-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--selva);
+      color: var(--selva-lt);
+      border: none;
+      border-radius: 40px;
+      padding: 12px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-pill-sm:hover {
+      opacity: 0.88;
+    }
+
+    .cta-ghost-sm {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .about-formation {
+      background: var(--bg-sage);
+      border-top: 0.5px solid var(--border);
+      padding: 3px 0;
+    }
+
+    .about-formation .wrap {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .af-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .af-item {
+      padding-left: 24px;
+      border-left: 0.5px solid var(--border);
+    }
+
+    .af-institution {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .af-degree {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .af-year {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+    }
+
+    /* ── SERVICIOS ── */
+    .services {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .services .wrap {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .srv-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .srv-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .srv-title span {
+      color: var(--gold);
+    }
+
+    .srv-note {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--hint);
+    }
+
+    .srv-note strong {
+      color: #4A5A48;
+      font-weight: 500;
+    }
+
+    .srv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .srv-card {
+      border-radius: 14px;
+      padding: 26px 28px;
+      border: 0.5px solid var(--border);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .srv-card:hover {
+      border-color: var(--selva);
+    }
+
+    .srv-card-dk {
+      background: var(--bg-dark);
+      border-color: var(--border-dk);
+    }
+
+    .srv-card-dk:hover {
+      border-color: var(--selva);
+    }
+
+    .srv-card-gd {
+      background: var(--bg-gold);
+      border-color: rgba(154, 112, 16, 0.25);
+    }
+
+    .srv-num-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .snl-green {
+      color: #3A6A48;
+    }
+
+    .snl-lt {
+      color: #2A5A30;
+    }
+
+    .snl-gold {
+      color: #8A6010;
+    }
+
+    .srv-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .si-g {
+      background: var(--bg-sage);
+      color: var(--selva);
+    }
+
+    .si-dk {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--selva-mid);
+    }
+
+    .si-gd {
+      background: rgba(154, 112, 16, 0.1);
+      color: var(--gold);
+    }
+
+    .srv-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .sn-dark {
+      color: var(--ink);
+    }
+
+    .sn-white {
+      color: #F5F6F2;
+    }
+
+    .sn-ochr {
+      color: #3A2A08;
+    }
+
+    .srv-desc {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .sd-g {
+      color: var(--muted);
+    }
+
+    .sd-dk {
+      color: var(--selva-dim);
+    }
+
+    .sd-gd {
+      color: #6A5020;
+    }
+
+    .srv-for {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      width: fit-content;
+    }
+
+    .sf-g {
+      background: var(--bg-sage);
+      color: #2A5A30;
+      border: 0.5px solid var(--border);
+    }
+
+    .sf-dk {
+      background: rgba(255, 255, 255, 0.06);
+      color: #7ABD90;
+      border: 0.5px solid var(--border-dk);
+    }
+
+    .sf-gd {
+      background: rgba(154, 112, 16, 0.1);
+      color: var(--gold);
+      border: 0.5px solid rgba(154, 112, 16, 0.2);
+    }
+
+    .srv-del {
+      margin-top: 4px;
+      padding-top: 12px;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .sd-bd-g {
+      border-top: 0.5px solid var(--border);
+      color: #3A4A38;
+    }
+
+    .sd-bd-dk {
+      border-top: 0.5px solid var(--border-dk);
+      color: var(--selva-dim);
+    }
+
+    .sd-bd-gd {
+      border-top: 0.5px solid rgba(154, 112, 16, 0.2);
+      color: #6A5020;
+    }
+
+    .srv-del strong {
+      font-weight: 600;
+    }
+
+    /* ── SEPARATOR BAND ── */
+    .sep-band {
+      background: var(--bg-dark);
+    }
+
+    .sep-band .wrap {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      text-align: center;
+    }
+
+    .sep-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 32px;
+      color: #F5F6F2;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .sep-title span {
+      color: var(--gold);
+    }
+
+    .sep-body {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #A8C8B0;
+    }
+
+    /* ── CONTACTO ── */
+    .contact {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .contact .wrap {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .c-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: var(--ink);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .c-title span {
+      color: var(--selva);
+    }
+
+    .c-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+      margin-bottom: 24px;
+    }
+
+    .c-body strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .c-question {
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 28px;
+    }
+
+    .c-question span {
+      color: var(--selva);
+    }
+
+    .c-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .c-btn-p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--selva);
+      color: var(--selva-lt);
+      border: none;
+      border-radius: 40px;
+      padding: 16px 32px;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .c-btn-p:hover {
+      opacity: 0.88;
+    }
+
+    .c-btn-s {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--selva);
+      border: 1px solid var(--selva);
+      border-radius: 40px;
+      padding: 14px 32px;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .c-btn-s:hover {
+      background: var(--selva);
+      color: var(--selva-lt);
+    }
+
+    .c-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .c-card {
+      border-radius: 12px;
+      padding: 18px 22px;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+    }
+
+    .cc-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 6px;
+    }
+
+    .cc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .cc-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .c-thesis {
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: var(--selva);
+      text-align: center;
+    }
+
+    .ct-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 20px;
+      color: #F5F6F2;
+      line-height: 1.3;
+    }
+
+    .ct-text span {
+      color: var(--gold-lt);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-darker);
+    }
+
+    footer .wrap {
+      padding-top: 28px;
+      padding-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 20px;
+      color: #F5F6F2;
+      text-decoration: none;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #A8C8B0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #A8C8B0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--selva-mid);
+    }
+
+    /* ── ICONS (Tabler inline SVG fallback) ── */
+    .icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+
+      .hero .wrap,
+      .method-intro,
+      .about .wrap,
+      .contact .wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero .wrap {
+        padding-top: 48px;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .dark-band .wrap {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .db {
+        border-left: none;
+        padding-left: 0;
+        border-top: 0.5px solid var(--border-dk);
+        padding-top: 24px;
+      }
+
+      .db:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .srv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .srv-header {
+        grid-template-columns: 1fr;
+      }
+
+      .proj-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .proj-sub {
+        text-align: left;
+        max-width: 100%;
+      }
+
+      .about .wrap {
+        padding-bottom: 0;
+      }
+
+      .about-formation .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .af-label {
+        writing-mode: horizontal-tb;
+        transform: none;
+        margin-bottom: 8px;
+      }
+
+      .af-item {
+        border-left: none;
+        padding-left: 0;
+        border-top: 0.5px solid var(--border);
+        padding-top: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="#" class="nav-logo">Eilyn <span>Ginoe</span></a>
+      <ul class="nav-links">
+        <li><a href="#metodo">método</a></li>
+        <li><a href="#proyectos">proyectos</a></li>
+        <li><a href="#sobre-mi">sobre mí</a></li>
+        <li><a href="#servicios">servicios</a></li>
+      </ul>
+      <a href="#contacto" class="nav-cta">hablemos</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Presentación principal">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <div class="hero-tag-line"></div>
+          <span class="hero-tag-text">diseño experiencias que cambian conductas</span>
+        </div>
+        <div class="hero-title">
+          <span class="t-serif">DISEÑO</span>
+          <span class="t-bold">que transforma</span>
+          <span class="t-gold">conductas.</span>
+        </div>
+        <p class="hero-sub">
+          La mayoría de los cursos terminan siendo un PDF que nadie vuelve a abrir.
+          Yo diseño desde otra pregunta: <strong>¿qué tiene que pasar en la mente de quien aprende para que algo
+            realmente cambie?</strong>
+        </p>
+        <div class="hero-cta-row">
+          <a href="#proyectos" class="cta-pill">
+            ver cómo trabajo
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <button class="cta-ghost" onclick="document.getElementById('metodo').scrollIntoView({behavior:'smooth'})">ver
+            mi método</button>
+        </div>
+      </div>
+      <div class="hero-right" aria-hidden="true">
+        <div class="fcard">
+          <div class="fcard-dot">economía de la atención</div>
+          <div class="fcard-title">El foco es el recurso más escaso</div>
+          <p class="fcard-body">No diseño contenido — diseño el recorrido cognitivo que lleva del saber al hacer.</p>
+        </div>
+        <div class="fcard-gold">
+          <div class="fg-num">12<span>+</span></div>
+          <div class="fg-label">proyectos<br>completados</div>
+        </div>
+        <div class="fcard">
+          <div class="fcard-dot">cambio de comportamiento</div>
+          <div class="fcard-title">El objetivo no es saber más</div>
+          <p class="fcard-body">Es actuar diferente. Aplico economía del comportamiento para que el aprendizaje se
+            vuelva hábito.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">scroll para explorar</span>
+    </div>
+  </section>
+
+  <!-- DARK BAND -->
+  <section class="dark-band" aria-label="Áreas de trabajo">
+    <div class="wrap">
+      <div class="db">
+        <div class="db-n">01 —</div>
+        <div class="db-tg">Diseño instruccional</div>
+        <p class="db-b">Estructuro el conocimiento para que la mente lo retenga. No diseño contenido — diseño el
+          recorrido cognitivo que lleva del saber al hacer.</p>
+      </div>
+      <div class="db">
+        <div class="db-n">02 —</div>
+        <div class="db-td">Economía de la atención</div>
+        <p class="db-b">El recurso más escaso no es el tiempo, es el foco. Diseño experiencias que lo capturan y lo
+          sostienen — sin trucos, con arquitectura.</p>
+      </div>
+      <div class="db">
+        <div class="db-n">03 —</div>
+        <div class="db-tg">Cambio de comportamiento</div>
+        <p class="db-b">El objetivo no es que las personas sepan más. Es que actúen diferente. Aplico economía del
+          comportamiento para que el aprendizaje se convierta en hábito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section class="method" id="metodo" aria-label="Mi método de diseño">
+    <div class="wrap">
+      <div class="method-intro">
+        <div>
+          <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">cómo pienso antes de diseñar</span>
+          </div>
+          <div class="method-title">Cuatro preguntas.<br>Ninguna es <span>"¿qué contenido incluimos?"</span></div>
+          <p class="method-body">La mayoría de los proyectos llegan con una solución ya definida. Mi trabajo empieza
+            antes — en las preguntas que nadie hizo. <strong>El formato siempre es la última decisión, nunca la
+              primera.</strong></p>
+        </div>
+        <div>
+          <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px;">
+            <div
+              style="border-radius:12px;padding:18px 20px;background:var(--bg-dark);border:0.5px solid var(--border-dk);">
+              <div
+                style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#2A5A30;margin-bottom:8px;">
+                estructura del proceso</div>
+              <div
+                style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:18px;color:#F5F6F2;margin-bottom:4px;">
+                Backward Design</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold-lt);margin-bottom:8px;">
+                Wiggins & McTighe, 1998</div>
+              <p style="font-size:12px;line-height:1.65;color:#5A7860;">Primero el resultado esperado, luego la
+                evidencia de logro, al final la experiencia que lo hace posible. El contenido nunca precede al
+                propósito.</p>
+            </div>
+            <div
+              style="border-radius:12px;padding:18px 20px;background:var(--bg-gold);border:0.5px solid rgba(154,112,16,0.25);">
+              <div
+                style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#8A6010;margin-bottom:8px;">
+                fundamentación de decisiones</div>
+              <div
+                style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:18px;color:#3A2A08;margin-bottom:4px;">
+                Psicología cognitiva y del comportamiento</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);margin-bottom:8px;">Bjork ·
+                Sweller · Cialdini · Kahneman</div>
+              <p style="font-size:12px;line-height:1.65;color:#6A5020;">Cada decisión de diseño descansa sobre un
+                principio verificable con autor y año — no sobre convención instruccional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap steps">
+      <!-- paso 1 -->
+      <div class="step">
+        <div class="s-left">
+          <div class="s-num n1">01</div>
+          <div class="s-conn c1-conn"></div>
+        </div>
+        <div class="s-card c1">
+          <div class="s-tag-step st-green">conducta · antes que contenido</div>
+          <div class="s-title-step stt-dark">¿Qué necesita hacer diferente esta persona?</div>
+          <p class="s-body-step sb-green">No qué necesita saber — qué necesita <strong>hacer</strong>. Esta pregunta
+            reencuadra el proyecto desde el inicio: el objetivo nunca es un certificado, es un cambio observable en la
+            conducta de alguien.</p>
+          <div class="s-q sq-green"><strong>"¿Qué necesita hacer diferente esta persona después de esta
+              capacitación?"</strong></div>
+          <div class="s-pills">
+            <span class="s-pill sp-green">manejar objeciones sin paralizarse</span>
+            <span class="s-pill sp-green">tomar decisiones bajo presión</span>
+            <span class="s-pill sp-green">explicar qué es Python y decidir si quiere continuar</span>
+          </div>
+        </div>
+      </div>
+      <!-- paso 2 -->
+      <div class="step">
+        <div class="s-left">
+          <div class="s-num n2">02</div>
+          <div class="s-conn c2-conn"></div>
+        </div>
+        <div class="s-card c2">
+          <div class="s-tag-step st-gold">diagnóstico · desde la ciencia</div>
+          <div class="s-title-step stt-dark">¿Qué está bloqueando esa conducta?</div>
+          <p class="s-body-step sb-gold">Un bloqueo es lo que impide que el aprendizaje ocurra o se convierta en acción.
+            Puede ser cognitivo — el cerebro recibe más de lo que puede procesar. Emocional — el aprendiz no se
+            identifica con el tema. O de acceso — el conocimiento existe pero no está disponible cuando se necesita.
+            <strong>Identificar cuál es cambia completamente lo que hay que diseñar.</strong>
+          </p>
+          <div class="s-q sq-gold"><strong>"¿Qué está bloqueando la adquisición y transferencia — y qué principio
+              científico lo explica?"</strong></div>
+          <div class="s-pills">
+            <span class="s-pill sp-gold">carga cognitiva — Sweller</span>
+            <span class="s-pill sp-gold">identidad y pertenencia</span>
+            <span class="s-pill sp-gold">arquitectura temporal</span>
+          </div>
+        </div>
+      </div>
+      <!-- bisagra -->
+      <div class="bisagra">
+        <div class="bisagra-icon">⇄</div>
+        <div class="bisagra-text"><strong>La bisagra del método:</strong> el bloqueo identificado lleva directo al
+          principio que lo resuelve — no a una decisión de formato. El formato es consecuencia, nunca punto de partida.
+        </div>
+      </div>
+      <!-- paso 3 -->
+      <div class="step">
+        <div class="s-left">
+          <div class="s-num n3">03</div>
+          <div class="s-conn c1-conn"></div>
+        </div>
+        <div class="s-card c3">
+          <div class="s-tag-step st-green">principio · el que resuelve ese bloqueo</div>
+          <div class="s-title-step stt-dark">¿Qué principio científico desactiva ese bloqueo?</div>
+          <p class="s-body-step sb-green">Cada bloqueo tiene un principio que lo resuelve. La pre-suasión de Cialdini
+            resuelve el acceso cognitivo bajo presión. Bjork resuelve la falta de transferencia. <strong>El principio
+              dicta cuándo, cómo y dónde intervenir</strong> — antes de decidir qué construir.</p>
+          <div class="s-q sq-green"><strong>"¿Qué principio científico me dice exactamente cuándo y cómo
+              intervenir?"</strong></div>
+          <div class="s-pills">
+            <span class="s-pill sp-green">pre-suasión — Cialdini</span>
+            <span class="s-pill sp-green">dificultad deseable — Bjork</span>
+            <span class="s-pill sp-green">motivación intrínseca — Deci & Ryan</span>
+            <span class="s-pill sp-green">efecto Zeigarnik</span>
+          </div>
+        </div>
+      </div>
+      <!-- paso 4 -->
+      <div class="step">
+        <div class="s-left">
+          <div class="s-num n4">04</div>
+          <div class="s-conn"></div>
+        </div>
+        <div class="s-card c4">
+          <div class="s-tag-step st-dk">intervención · la mínima que cambia todo</div>
+          <div class="s-title-step stt-light">¿Qué tipo de intervención activa ese principio en el momento correcto?
+          </div>
+          <p class="s-body-step sb-dk">Solo aquí aparece el formato. Y ya no es una decisión — es una consecuencia
+            lógica de las tres preguntas anteriores. <strong>Lo que define el formato es el bloqueo y el principio, no
+              la preferencia del cliente.</strong></p>
+          <div class="s-q sq-dk"><strong>"¿Cuál es la intervención mínima que activa el principio correcto en el momento
+              exacto?"</strong></div>
+          <div class="s-pills">
+            <span class="s-pill sp-dk">curso narrativo</span>
+            <span class="s-pill sp-dk">hub de desempeño</span>
+            <span class="s-pill sp-dk">simulación experiencial</span>
+            <span class="s-pill sp-dk">auditoría instruccional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="projects" id="proyectos" aria-label="Proyectos seleccionados">
+    <div class="wrap">
+      <div class="proj-header">
+        <div>
+          <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">proyectos seleccionados</span>
+          </div>
+          <div class="proj-title">Tres problemas.<br>Tres <span>intervenciones.</span></div>
+        </div>
+        <p class="proj-sub">Cada proyecto parte de un diagnóstico — no de un formato. El caso de estudio muestra el
+          pensamiento, no solo el resultado.</p>
+      </div>
+
+      <div class="proj-grid">
+        <a href="https://signal-sales.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card">
+          <div class="pc-img pc-img-1">
+            <div class="pc-badge pb-1">hub de desempeño</div>
+            <div class="pc-name pcn-1">Signal<br><span>Sales</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-problem">acceso cognitivo bajo presión</div>
+            <div class="pc-ttl">El vendedor sabe — pero no puede acceder cuando más lo necesita</div>
+            <p class="pc-desc">Intervención de 3 min pre-reunión basada en pre-suasión, carga cognitiva y priming
+              lingüístico.</p>
+            <div class="pc-tags">
+              <span class="pc-tag">Cialdini</span>
+              <span class="pc-tag">Sweller</span>
+              <span class="pc-tag pc-tag-gold">3 min · B2B</span>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-bloqueo">arquitectura temporal</span>
+              <button class="pc-btn">ver caso →</button>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://rediseno-python.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card">
+          <div class="pc-img pc-img-2">
+            <div class="pc-badge pb-2">auditoría + rediseño</div>
+            <div class="pc-name pcn-2">Cisco<br><span>Python</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-problem">el curso empieza por el contenido</div>
+            <div class="pc-ttl">El estudiante nunca supo para qué — nadie le preguntó si Python tenía algo que ver con
+              él</div>
+            <p class="pc-desc">Auditoría de 5 dimensiones con marco teórico + DDI completo de rediseño para el
+              estudiante que el curso ignoró.</p>
+            <div class="pc-tags">
+              <span class="pc-tag">Deci & Ryan</span>
+              <span class="pc-tag">Sweller</span>
+              <span class="pc-tag pc-tag-gold">~2M estudiantes</span>
+            </div>
+            <div class="pc-footer">
+              <span class="pc-bloqueo">relevancia personal ausente</span>
+              <button class="pc-btn">ver caso →</button>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://pensamiento-estrategico.vercel.app/" target="_blank" rel="noopener noreferrer"
+          class="proj-card">
+          <div class="pc-img pc-img-3">
+            <div class="pc-badge pb-3">simulación experiencial</div>
+            <div class="pc-name pcn-3">Pensar<br><span>estratégico</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="pc-problem">bloqueos cognitivos bajo presión</div>
+            <div class="pc-ttl">El cerebro no aprende a pensar diferente leyendo sobre cómo hacerlo</div>
+            <p class="pc-desc">Simulación donde el fallo es el mecanismo de aprendizaje. El contenido aparece cuando el
+              participante lo necesita — no antes.</p>
+            <div class="pc-tags">
+              <span class="pc-tag">Bjork</span>
+              <span class="pc-tag">Kahneman</span>
+              <span class="pc-tag pc-tag-gold">45–90 min</span>
+            </div>
+            <div class="pc-doc-badge">
+              incluye muestra de DDI
+            </div>
+            <div class="pc-footer">
+              <span class="pc-bloqueo">dificultad deseable</span>
+              <button class="pc-btn">ver caso →</button>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="proj-note">
+        <div class="pn-icon">💡</div>
+        <p class="pn-text"><strong>Cada caso de estudio muestra el pensamiento, no solo el resultado.</strong> Las
+          cuatro preguntas del método aplicadas a un problema real — el diagnóstico, el principio científico que lo
+          resuelve y lo que se descartó en el camino.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="about" id="sobre-mi" aria-label="Sobre Eilyn Ginoe">
+    <div class="wrap">
+      <div class="about-left">
+        <div class="about-logo-wrap">
+          <div class="about-logo-ring">
+            <img src="logo.webp" alt="Logo Eilyn Ginoe Brito" />
+          </div>
+          <div class="about-logo-tag">Eilyn Ginoe · LXD</div>
+        </div>
+        <div class="about-stats">
+          <div class="astat">
+            <div class="astat-num">3<span>+</span></div>
+            <div class="astat-label"><strong>años diseñando experiencias</strong>que cambian conductas</div>
+          </div>
+          <div class="astat">
+            <div class="astat-num">3</div>
+            <div class="astat-label"><strong>marcos científicos aplicados</strong>comportamiento, atención y cognición
+            </div>
+          </div>
+          <div class="astat">
+            <div class="astat-num">3</div>
+            <div class="astat-label"><strong>tipos de intervención</strong>curso, hub de desempeño, simulación</div>
+          </div>
+        </div>
+        <div class="about-tags">
+          <span class="atag">diseño instruccional</span>
+          <span class="atag">LXD</span>
+          <span class="atag">UX de aprendizaje</span>
+          <span class="atag atag-gold">economía de la atención</span>
+          <span class="atag">cambio de comportamiento</span>
+          <span class="atag atag-gold">HTML · CSS · JS</span>
+          <span class="atag">SCORM · xAPI</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">sobre mí</span>
+        </div>
+        <div class="about-title">La persona<br>detrás del <span>método.</span></div>
+        <p class="about-p">Empecé estudiando Bioanálisis. Luego me di cuenta de que lo que más me interesaba no era el
+          laboratorio — era entender por qué las personas aprenden de cierta manera y de otras no.</p>
+        <p class="about-p">Hoy diseño experiencias de aprendizaje que combinan <strong>psicología conductual, economía
+            de la atención y diseño UX</strong>. No para hacer cursos más bonitos — sino para que algo en la mente del
+          aprendiz se mueva de verdad.</p>
+        <p class="about-p">He visto cómo muchos cursos corporativos terminan siendo un PDF que nadie vuelve a abrir.
+          <strong>El problema no es de contenido — es de arquitectura del aprendizaje.</strong> Y eso es exactamente lo
+          que diseño.
+        </p>
+        <div class="about-thesis">
+          <div class="at-label">mi tesis</div>
+          <div class="at-text">"La atención no se pide.<br><span>Se diseña."</span></div>
+        </div>
+        <div class="about-cta-row">
+          <a href="#servicios" class="cta-pill-sm">ver qué ofrezco →</a>
+          <button class="cta-ghost-sm"
+            onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">hablemos</button>
+        </div>
+      </div>
+    </div>
+    <div class="about-formation">
+      <div class="wrap">
+        <span class="af-label">formación</span>
+        <div class="af-item">
+          <div class="af-institution">Universidad de Salamanca</div>
+          <div class="af-degree">Certificado profesional · Business Teacher Education</div>
+          <div class="af-year">2023</div>
+        </div>
+        <div class="af-item">
+          <div class="af-institution">Universidad de Oriente</div>
+          <div class="af-degree">Licenciada en Bioanálisis</div>
+          <div class="af-year">2000 — 2005</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios" aria-label="Servicios">
+    <div class="wrap">
+      <div class="srv-header">
+        <div>
+          <div class="eyebrow">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">qué ofrezco</span>
+          </div>
+          <div class="srv-title">No vendo formatos.<br>Resuelvo <span>problemas.</span></div>
+        </div>
+        <p class="srv-note">Cada servicio parte del mismo lugar: <strong>el diagnóstico del bloqueo real.</strong> El
+          formato es siempre la última decisión.</p>
+      </div>
+      <div class="srv-grid">
+        <div class="srv-card">
+          <div class="srv-num-lbl snl-green">01</div>
+          <div class="srv-icon si-g">🔍</div>
+          <div class="srv-name sn-dark">Auditoría instruccional</div>
+          <p class="srv-desc sd-g">Analizo tu curso con tres lentes teóricos e identifico exactamente dónde el diseño
+            trabaja en contra del aprendizaje.</p>
+          <span class="srv-for sf-g">para quien tiene un curso que no funciona</span>
+          <div class="srv-del sd-bd-g"><strong>Entregable:</strong> informe de hallazgos con evidencia, marco teórico y
+            propuesta de rediseño por dimensión.</div>
+        </div>
+        <div class="srv-card srv-card-dk">
+          <div class="srv-num-lbl snl-lt">02</div>
+          <div class="srv-icon si-dk">📐</div>
+          <div class="srv-name sn-white">Diseño de e-learning desde cero</div>
+          <p class="srv-desc sd-dk">Desde el diagnóstico del bloqueo hasta el prototipo funcional en HTML/CSS/JS con
+            integración SCORM o xAPI.</p>
+          <span class="srv-for sf-dk">para quien necesita construir algo nuevo</span>
+          <div class="srv-del sd-bd-dk"><strong>Entregable:</strong> DDI completo + prototipo funcional + decisiones de
+            diseño documentadas.</div>
+        </div>
+        <div class="srv-card srv-card-gd">
+          <div class="srv-num-lbl snl-gold">03</div>
+          <div class="srv-icon si-gd">⚡</div>
+          <div class="srv-name sn-ochr">Hub de desempeño</div>
+          <p class="srv-desc sd-gd">Intervenciones justo a tiempo para los momentos de mayor presión. Existe en el
+            espacio entre lo que la persona ya sabe y lo que necesita ejecutar ahora mismo.</p>
+          <span class="srv-for sf-gd">para quien necesita apoyo en el momento crítico</span>
+          <div class="srv-del sd-bd-gd"><strong>Entregable:</strong> herramienta funcional + caso de diseño con
+            principios cognitivos aplicados.</div>
+        </div>
+        <div class="srv-card">
+          <div class="srv-num-lbl snl-green">04</div>
+          <div class="srv-icon si-g">🗺</div>
+          <div class="srv-name sn-dark">Consultoría de estrategia</div>
+          <p class="srv-desc sd-g">Cuando el problema no es un curso — es una arquitectura completa. Diagnostico las
+            fricciones estructurales y diseño la estrategia de intervención.</p>
+          <span class="srv-for sf-g">para líderes de L&D con problemas sistémicos</span>
+          <div class="srv-del sd-bd-g"><strong>Entregable:</strong> diagnóstico estratégico + mapa de intervenciones
+            priorizado + criterios de éxito.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEPARATOR -->
+  <div class="sep-band" aria-hidden="true">
+    <div class="wrap">
+      <div class="sep-title">"¿Tu equipo completa los cursos<br>pero sigue haciendo <span>lo mismo?"</span></div>
+      <p class="sep-body">Ese es exactamente el problema que resuelvo. No con más contenido — con una intervención
+        diseñada desde el bloqueo real.</p>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto" aria-label="Contacto">
+    <div class="wrap">
+      <div class="contact-left">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">hablemos</span>
+        </div>
+        <div class="c-title">¿Tienes un<br>problema de <span>aprendizaje?</span></div>
+        <p class="c-body">No hace falta que llegues con la solución definida. Llega con el problema. <strong>La primera
+            conversación es para entender qué está bloqueando — no para venderte un formato.</strong></p>
+        <div class="c-question">"¿Qué necesita hacer diferente tu equipo — y <span>qué está impidiendo que lo
+            haga?</span>"</div>
+        <div class="c-actions">
+          <a href="https://calendly.com/eilynginoe/llamada-de-descubrimiento" target="_blank" rel="noopener noreferrer"
+            class="c-btn-s">📅&nbsp;agendar una llamada</a>
+          <a href="https://linkedin.com/in/eilynginoebrito" target="_blank" rel="noopener noreferrer" class="c-btn-s">💼
+            &nbsp;escribirme en linkedin</a>
+        </div>
+      </div>
+      <div class="c-cards">
+        <div class="c-card">
+          <div class="cc-label">cómo trabajo</div>
+          <div class="cc-title">Primero el diagnóstico</div>
+          <p class="cc-text">Antes de proponer cualquier solución, necesito entender el bloqueo real. La primera sesión
+            es siempre de escucha y análisis.</p>
+        </div>
+        <div class="c-card">
+          <div class="cc-label">qué esperar</div>
+          <div class="cc-title">Decisiones documentadas</div>
+          <p class="cc-text">Cada proyecto incluye documentación del pensamiento de diseño — qué se construyó, qué se
+            descartó y por qué.</p>
+        </div>
+        <div class="c-card">
+          <div class="cc-label">dónde encontrarme</div>
+          <div class="cc-title">México · Remoto</div>
+          <p class="cc-text">Disponible para proyectos de largo plazo o consultorías puntuales en cualquier zona
+            horaria.</p>
+        </div>
+        <div class="c-thesis">
+          <div class="ct-text">"La atención no se pide.<br><span>Se diseña."</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <a href="#" class="footer-logo">Eilyn <span>Ginoe</span></a>
+      <span class="footer-copy">© 2026 · diseñadora de experiencias de aprendizaje</span>
+      <ul class="footer-links">
+        <li><a href="#metodo">método</a></li>
+        <li><a href="#proyectos">proyectos</a></li>
+        <li><a href="#sobre-mi">sobre mí</a></li>
+        <li><a href="#contacto">contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+</html>
