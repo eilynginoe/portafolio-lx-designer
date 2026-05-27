@@ -30,6 +30,7 @@
       background: #F5F6F2;
       color: #1A2E18;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* ── TOKENS ── */
@@ -1025,25 +1026,25 @@
       border-color: rgba(154, 112, 16, 0.2);
     }
 
-    .pc-doc-badge{
-  display: inline-flex;
-  align-items: center;
+    .pc-doc-badge {
+      display: inline-flex;
+      align-items: center;
 
-  margin-bottom: 1rem;
-  padding: .4rem .8rem;
+      margin-bottom: 1rem;
+      padding: .4rem .8rem;
 
-  border-radius: 999px;
+      border-radius: 999px;
 
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
 
-  color: #9f8a5b;
+      color: #9f8a5b;
 
-  background: rgba(159,138,91,.08);
-  border: 1px solid rgba(159,138,91,.16);
-}
+      background: rgba(159, 138, 91, .08);
+      border: 1px solid rgba(159, 138, 91, .16);
+    }
 
     .pc-footer {
       display: flex;
@@ -1860,8 +1861,72 @@
       vertical-align: middle;
     }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--selva);
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+
+      .nav {
+        height: auto;
+        padding: 18px 0;
+      }
+
+      .nav .wrap {
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+
+        padding: 24px;
+
+        background: rgba(245, 246, 242, 0.98);
+        backdrop-filter: blur(12px);
+
+        border: 0.5px solid var(--border);
+        border-radius: 16px;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
 
       .hero .wrap,
       .method-intro,
@@ -1938,6 +2003,22 @@
         border-top: 0.5px solid var(--border);
         padding-top: 16px;
       }
+
+        footer .wrap {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .footer-copy {
+    line-height: 1.6;
+  }
     }
   </style>
 </head>
@@ -1947,14 +2028,24 @@
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
+
       <a href="#" class="nav-logo">Eilyn <span>Ginoe</span></a>
-      <ul class="nav-links">
-        <li><a href="#metodo">método</a></li>
-        <li><a href="#proyectos">proyectos</a></li>
-        <li><a href="#sobre-mi">sobre mí</a></li>
-        <li><a href="#servicios">servicios</a></li>
-      </ul>
-      <a href="#contacto" class="nav-cta">hablemos</a>
+
+      <button class="menu-toggle" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#metodo">método</a></li>
+          <li><a href="#proyectos">proyectos</a></li>
+          <li><a href="#sobre-mi">sobre mí</a></li>
+          <li><a href="#servicios">servicios</a></li>
+        </ul>
+
+        <a href="#contacto" class="nav-cta">hablemos</a>
+      </div>
+
     </div>
   </header>
 
@@ -2486,6 +2577,15 @@
       </ul>
     </div>
   </footer>
+
+  <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.nav-menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
 
 </body>
 
