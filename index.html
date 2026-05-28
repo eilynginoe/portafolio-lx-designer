@@ -2053,7 +2053,14 @@
           <li><a href="#servicios">servicios</a></li>
         </ul>
 
-        <a href="#contacto" class="nav-cta">hablemos</a>
+        <a 
+  href="#contacto" 
+  class="nav-cta"
+  onclick="gtag('event', 'click_hablemos', {
+    event_category: 'contacto',
+    event_label: 'navbar_contacto'
+  })"
+>
       </div>
 
     </div>
@@ -2301,7 +2308,10 @@
       </div>
 
       <div class="proj-grid">
-        <a href="https://signal-sales.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card">
+        <a href="https://signal-sales.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card" onclick="gtag('event', 'view_project_signal_sales', {
+    event_category: 'portfolio',
+    event_label: 'signal_sales'
+  })">
           <div class="pc-img pc-img-1">
             <div class="pc-badge pb-1">hub de desempeño</div>
             <div class="pc-name pcn-1">Signal<br><span>Sales</span></div>
@@ -2323,7 +2333,11 @@
           </div>
         </a>
 
-        <a href="https://rediseno-python.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card">
+        <a href="https://rediseno-python.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card"
+          onclick="gtag('event', 'view_project_cisco_python', {
+  event_category: 'portfolio',
+  event_label: 'cisco_python'
+})">
           <div class="pc-img pc-img-2">
             <div class="pc-badge pb-2">auditoría + rediseño</div>
             <div class="pc-name pcn-2">Cisco<br><span>Python</span></div>
@@ -2347,7 +2361,10 @@
         </a>
 
         <a href="https://pensamiento-estrategico.vercel.app/" target="_blank" rel="noopener noreferrer"
-          class="proj-card">
+          class="proj-card" onclick="gtag('event', 'view_project_pensamiento_estrategico', {
+  event_category: 'portfolio',
+  event_label: 'pensamiento_estrategico'
+})">
           <div class="pc-img pc-img-3">
             <div class="pc-badge pb-3">simulación experiencial</div>
             <div class="pc-name pcn-3">Pensar<br><span>estratégico</span></div>
