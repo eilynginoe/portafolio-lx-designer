@@ -2,27 +2,25 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eilyn Ginoe · Diseñadora de Experiencias de Aprendizaje</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eilyn Ginoe · Investigación antes de diseñar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet" />
-
-    <style>
-    /* ── RESET & BASE ── */
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
     *,
     *::before,
     *::after {
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: smooth
     }
 
     body {
@@ -30,180 +28,196 @@
       background: #F5F6F2;
       color: #1A2E18;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: hidden
     }
 
-    /* ── TOKENS ── */
     :root {
       --ink: #080F0A;
       --bg: #F5F6F2;
-      --bg-sage: #EAF0E6;
-      --bg-dark: #0D1E10;
-      --bg-darker: #080F0A;
-      --bg-gold: #F8F4E8;
-      --selva: #1A5C35;
-      --selva-lt: #C0E8D0;
-      --selva-mid: #A8D0B4;
-      --selva-dim: #4A6850;
+      --sage: #EAF0E6;
+      --dark: #0D1E10;
+      --gold-bg: #F8F4E8;
+      --green: #1A5C35;
+      --green-lt: #C0E8D0;
+      --green-mid: #A8D0B4;
       --gold: #9A7010;
       --gold-lt: #C9A84C;
-      --gold-bg: rgba(154, 112, 16, 0.12);
       --border: #C8D8C0;
-      --border-dk: #1E3820;
       --muted: #5A6858;
       --hint: #7A9870;
       --max: 1100px;
-      --pad: clamp(24px, 5vw, 80px);
+      --pad: clamp(24px, 5vw, 80px)
     }
 
-    /* ── CONTAINER ── */
     .wrap {
       max-width: var(--max);
-      margin: 0 auto;
+      margin: auto;
       padding-left: var(--pad);
-      padding-right: var(--pad);
+      padding-right: var(--pad)
     }
 
-    /* ── UTILITIES ── */
     .eyebrow {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 20px
     }
 
     .eyebrow-line {
       width: 32px;
-      height: 0.5px;
-      background: var(--selva);
-      flex-shrink: 0;
+      height: 1px;
+      background: var(--green)
     }
 
-    .eyebrow-text {
+    .eyebrow-text,
+    .label {
       font-family: 'Space Mono', monospace;
       font-size: 9px;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--hint);
+      color: var(--hint)
     }
 
-    /* ── NAV ── */
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(245, 246, 242, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid var(--border);
+      z-index: 20;
       height: 88px;
+      background: rgba(245, 246, 242, .94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .nav .wrap,
+    .nav-menu {
+      height: 100%;
+      display: flex;
+      align-items: center
     }
 
     .nav .wrap {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      justify-content: space-between
     }
 
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 22px;
+    .nav-logo,
+    .footer-logo {
+      font: italic 600 22px 'Cormorant Garamond', serif;
       color: var(--ink);
-      text-decoration: none;
+      text-decoration: none
     }
 
-    .nav-logo span {
-      color: var(--gold);
+    .nav-logo span,
+    .footer-logo span {
+      color: var(--gold)
     }
 
-    .nav-links {
+    .nav-menu {
+      gap: 36px
+    }
+
+    .nav-links,
+    .footer-links {
       display: flex;
-      gap: 36px;
-      list-style: none;
+      gap: 30px;
+      list-style: none
     }
 
-    .nav-links a {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
+    .nav-links a,
+    .footer-links a {
+      font: 10px 'Space Mono', monospace;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
+      text-decoration: none
     }
 
     .nav-links a:hover {
-      color: var(--selva);
+      color: var(--green)
+    }
+
+    .nav-cta,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 40px;
+      text-decoration: none;
+      text-transform: uppercase
     }
 
     .nav-cta {
-      font-family: 'Inter', sans-serif;
+      padding: 10px 22px;
+      border: 1px solid var(--green);
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 10px 24px;
-      border-radius: 30px;
-      background: transparent;
-      color: var(--selva);
-      border: 1px solid var(--selva);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      text-decoration: none;
+      color: var(--green)
     }
 
     .nav-cta:hover {
-      background: var(--selva);
-      color: var(--selva-lt);
+      background: var(--green);
+      color: var(--green-lt)
     }
 
-    /* ── HERO ── */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      width: 32px
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 1px;
+      background: var(--ink);
+      margin: 7px 0
+    }
+
+    /* HERO */
     .hero {
-      background: var(--bg);
       min-height: 760px;
       position: relative;
-      overflow: hidden;
       display: flex;
       align-items: center;
+      overflow: hidden
     }
 
     .hero-blob {
       position: absolute;
+      left: -70px;
       top: 50%;
-      left: 0;
       transform: translateY(-52%);
-      width: min(560px, 50vw);
-      height: min(640px, 90vh);
-      background: #D8E8D2;
+      width: min(620px, 55vw);
+      height: 650px;
       border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
-      opacity: 0.5;
+      background: #D8E8D2;
+      opacity: .55;
       pointer-events: none;
-      animation: blobFloat 8s ease-in-out infinite;
+      animation: blobFloat 8s ease-in-out infinite
     }
 
     @keyframes blobFloat {
 
       0%,
       100% {
-        transform: translateY(-52%) scale(1);
+        transform: translateY(-52%) scale(1)
       }
 
       50% {
-        transform: translateY(-55%) scale(1.02);
+        transform: translateY(-55%) scale(1.02)
       }
     }
 
     .hero .wrap {
       position: relative;
       z-index: 2;
-      padding-top: 80px;
-      padding-bottom: 80px;
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 60px;
       align-items: center;
+      padding-top: 80px;
+      padding-bottom: 80px
     }
 
     .hero-tag {
@@ -211,131 +225,124 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 28px;
-    }
-
-    .hero-tag-line {
-      width: 32px;
-      height: 0.5px;
-      background: var(--selva);
-    }
-
-    .hero-tag-text {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
+      font: 10px 'Space Mono', monospace;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--hint);
+      color: var(--hint)
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--green)
+    }
+
+    .hero-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      padding-left: 46px
     }
 
     .hero-title {
-      line-height: 0.95;
-      margin-bottom: 6px;
+      line-height: .95
+    }
+
+    .t-serif,
+    .t-gold {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic
     }
 
     .t-serif {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
       font-size: clamp(64px, 7.5vw, 108px);
-      color: var(--ink);
-      display: block;
+      font-weight: 300;
+      color: var(--ink)
     }
 
     .t-bold {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: clamp(40px, 5vw, 68px);
-      color: var(--selva);
       display: block;
-      letter-spacing: -1.5px;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: -1.5px
     }
 
     .t-gold {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
+      font-size: clamp(56px, 6.5vw, 122px);
       font-weight: 600;
-      font-size: clamp(56px, 6.5vw, 92px);
-      color: var(--gold);
-      display: block;
+      color: var(--gold)
     }
 
     .hero-sub {
+      max-width: 500px;
+      margin: 28px 0 40px;
       font-size: 14px;
       font-weight: 300;
       line-height: 1.85;
-      color: #4A5A48;
-      max-width: 460px;
-      margin: 28px 0 40px;
+      color: #4A5A48
     }
 
     .hero-sub strong {
-      font-weight: 600;
-      color: var(--ink);
+      color: var(--ink)
     }
 
-    .hero-cta-row {
+    .hero-actions {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 24px
     }
 
-    .cta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: 260px;
-      height: 64px;
-      justify-content: center;
-      background: var(--selva);
-      color: var(--selva-lt);
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
+    .pill {
+      min-width: 230px;
+      height: 60px;
+      background: var(--green);
+      color: var(--green-lt);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: opacity 0.2s;
+      letter-spacing: 2px
     }
 
-    .cta-pill:hover {
-      opacity: 0.88;
+    .pill:hover {
+      opacity: .88
     }
 
-    .cta-ghost {
-      font-family: 'Inter', sans-serif;
+    .ghost {
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--hint);
+      text-underline-offset: 5px;
       background: none;
       border: none;
       cursor: pointer;
-      text-decoration: underline;
-      text-underline-offset: 5px;
+      text-decoration: underline
     }
 
-    .hero-right {
+    .hero-cards {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 14px
     }
 
-    .fcard {
-      background: rgba(255, 255, 255, 0.86);
-      border: 0.5px solid rgba(74, 90, 72, 0.18);
+    .mini-card {
       border-radius: 14px;
-      padding: 18px 22px;
-      transition: border-color 0.2s;
+      padding: 20px 22px;
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid rgba(74, 90, 72, .18);
+      transition: border-color .2s
     }
 
-    .fcard:hover {
-      border-color: var(--selva);
+    .mini-card:hover {
+      border-color: var(--green)
     }
 
-    .fcard-dot {
+    .mini-card-dot {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -345,53 +352,46 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--hint);
-      margin-bottom: 10px;
+      margin-bottom: 10px
     }
 
-    .fcard-dot::before {
+    .mini-card-dot::before {
       content: '';
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--selva);
-      display: block;
+      background: var(--green);
+      display: block
     }
 
-    .fcard-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 19px;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 5px;
+    .mini-card h2 {
+      margin-bottom: 6px;
+      font: italic 600 19px/1.2 'Cormorant Garamond', serif;
+      color: var(--ink)
     }
 
-    .fcard-body {
+    .mini-card p {
       font-size: 11px;
-      color: var(--hint);
       line-height: 1.55;
+      color: var(--hint)
     }
 
-    .fcard-gold {
-      background: rgba(255, 252, 240, 0.92);
-      border: 0.5px solid rgba(154, 112, 16, 0.22);
+    .mini-card-gold {
       border-radius: 14px;
       padding: 16px 22px;
       margin-left: 28px;
+      background: rgba(255, 252, 240, .92);
+      border: 1px solid rgba(154, 112, 16, .22)
     }
 
     .fg-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 42px;
-      color: var(--gold);
-      line-height: 1.0;
+      font: 600 42px/1 'Cormorant Garamond', serif;
+      color: var(--gold)
     }
 
     .fg-num span {
       font-size: 20px;
-      color: var(--gold-lt);
+      color: var(--gold-lt)
     }
 
     .fg-label {
@@ -401,7 +401,16 @@
       text-transform: uppercase;
       color: #A08030;
       margin-top: 4px;
-      line-height: 1.4;
+      line-height: 1.4
+    }
+
+    .question-card {
+      border-radius: 14px;
+      padding: 16px 22px;
+      background: var(--gold-bg);
+      border: 1px solid rgba(154, 112, 16, .22);
+      font: italic 600 19px 'Cormorant Garamond', serif;
+      color: var(--gold)
     }
 
     .hero-scroll {
@@ -411,13 +420,13 @@
       z-index: 3;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 12px
     }
 
     .scroll-line {
       width: 36px;
-      height: 0.5px;
-      background: var(--selva);
+      height: .5px;
+      background: var(--green)
     }
 
     .scroll-label {
@@ -425,478 +434,740 @@
       font-size: 9px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--hint);
+      color: var(--hint)
     }
 
-    /* ── DARK BAND ── */
-    .dark-band {
-      background: var(--bg-dark);
+    /* SECTIONS */
+    section:not(.hero) {
+      padding: 80px 0
     }
 
-    .dark-band .wrap {
-      padding-top: 56px;
-      padding-bottom: 56px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 36px;
+      margin-bottom: 48px
     }
 
-    .db {
-      padding: 0 36px;
-      border-left: 0.5px solid var(--border-dk);
+    .section-title {
+      font: italic 600 clamp(38px, 5vw, 48px)/1.05 'Cormorant Garamond', serif;
+      color: var(--ink)
     }
 
-    .db:first-child {
-      padding-left: 0;
-      border-left: none;
+    .section-title span {
+      color: var(--gold)
     }
 
-    .db:last-child {
-      padding-right: 0;
+    .section-copy {
+      max-width: 390px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48
     }
 
-    .db-n {
+    .transition {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 18px 22px;
+      border: 1px dashed rgba(154, 112, 16, .4);
+      border-radius: 12px;
+      background: var(--gold-bg);
+      font-size: 13px;
+      line-height: 1.7;
+      color: #5A4010
+    }
+
+    .transition b {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 19px
+    }
+
+    /* CHIPS */
+    .chips-block {
+      margin-top: 24px
+    }
+
+    .chips-label {
       font-family: 'Space Mono', monospace;
       font-size: 9px;
-      letter-spacing: 2px;
-      color: #2A5A30;
-      margin-bottom: 14px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 12px
     }
 
-    .db-tg {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: 24px;
-      color: #C8E8D0;
-      line-height: 1.1;
-      margin-bottom: 10px;
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
     }
 
-    .db-td {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: 24px;
+    .chip {
+      padding: 6px 13px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 10px;
+      color: var(--green);
+      background: rgba(255, 255, 255, .55)
+    }
+
+    .chip-gold {
+      background: var(--gold-bg);
       color: var(--gold);
-      line-height: 1.1;
-      margin-bottom: 10px;
+      border-color: rgba(154, 112, 16, .25)
     }
 
-    .db-b {
-      font-size: 12px;
-      line-height: 1.75;
-      color: #A8C8B0;
-    }
-
-    /* ── MÉTODO ── */
-    .method {
+    /* SYMPTOMS */
+    .symptoms {
       background: var(--bg);
+      border-top: 1px solid var(--border)
     }
 
-    .method .wrap {
-      padding-top: 70px;
-      padding-bottom: 60px;
-    }
-
-    .method-intro {
+    .card-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
     }
 
-    .method-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 44px;
+    .contrast-card {
+      min-height: 310px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--sage);
+      display: flex;
+      flex-direction: column
+    }
+
+    .contrast-card:nth-child(2) {
+      background: var(--dark);
+      border-color: #1E3820
+    }
+
+    .contrast-card:nth-child(3) {
+      background: var(--gold-bg);
+      border-color: rgba(154, 112, 16, .25)
+    }
+
+    .contrast-card:nth-child(2) h3,
+    .contrast-card:nth-child(2) p {
+      color: var(--green-mid)
+    }
+
+    .contrast-card h3 {
+      margin: 16px 0 12px;
+      font: 600 25px/1.1 'Cormorant Garamond', serif;
+      color: var(--ink)
+    }
+
+    .contrast-card p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #4A5A48
+    }
+
+    .contrast-card .reveal {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(90, 104, 88, .25)
+    }
+
+    .contrast-card .reveal strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold)
+    }
+
+    /* DIAGNOSIS — flujo vertical */
+    .diagnosis {
+      background: var(--bg)
+    }
+
+    .diag-title {
+      font: italic 600 clamp(38px, 5vw, 48px)/1.05 'Cormorant Garamond', serif;
       color: var(--ink);
-      line-height: 1.1;
-      margin-bottom: 16px;
+      margin-bottom: 20px
     }
 
-    .method-title span {
-      color: var(--gold);
+    .diag-title span {
+      color: var(--gold)
     }
 
-    .method-body {
+    .diag-body {
       font-size: 14px;
       font-weight: 300;
       line-height: 1.85;
       color: #4A5A48;
+      margin-bottom: 6px
     }
 
-    .method-body strong {
+    .diag-body strong {
       font-weight: 600;
+      color: var(--ink)
+    }
+
+    .diag-question {
+      font: italic 600 22px/1.3 'Cormorant Garamond', serif;
       color: var(--ink);
-    }
-
-    .method-q-card {
-      background: var(--bg-dark);
+      margin: 16px 0 24px;
+      padding: 20px 24px;
       border-radius: 14px;
-      padding: 24px 28px;
-      margin-bottom: 12px;
+      background: var(--sage);
+      border: 1px solid var(--border)
     }
 
-    .mq-label {
+    /* lo que investigo */
+    .diag-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 16px
+    }
+
+    .inv-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 32px
+    }
+
+    .inv-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid var(--border);
+      text-align: center
+    }
+
+    .inv-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0
+    }
+
+    .inv-check svg {
+      width: 11px;
+      height: 11px;
+      stroke: #C0E8D0;
+      stroke-width: 2.5;
+      fill: none
+    }
+
+    .inv-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink)
+    }
+
+    .inv-sub {
+      font-size: 10px;
+      color: var(--hint);
+      line-height: 1.4
+    }
+
+    /* divider */
+    .diag-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0
+    }
+
+    /* pasos conectados */
+    .diag-steps-col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 32px
+    }
+
+    .diag-steps-col::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: calc(12.5%);
+      right: calc(12.5%);
+      height: 1px;
+      background: var(--border);
+      z-index: 0
+    }
+
+    .diag-step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      padding: 0 8px
+    }
+
+    .diag-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font: 700 9px 'Space Mono', monospace;
+      background: var(--green);
+      color: var(--green-lt)
+    }
+
+    .diag-step-num.n2 {
+      background: var(--gold);
+      color: #F0E8D0
+    }
+
+    .diag-step-num.n4 {
+      background: var(--ink);
+      color: var(--green-mid)
+    }
+
+    .diag-step-card {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--sage);
+      width: 100%
+    }
+
+    .diag-step-card.c2 {
+      background: var(--gold-bg);
+      border-color: rgba(154, 112, 16, .2)
+    }
+
+    .diag-step-card.c4 {
+      background: var(--dark);
+      border-color: #1E3820
+    }
+
+    .diag-step-tag {
       font-family: 'Space Mono', monospace;
       font-size: 8px;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #2A5A30;
-      margin-bottom: 10px;
+      color: var(--hint);
+      margin-bottom: 6px
     }
 
-    .mq-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 19px;
-      color: #A8D0B4;
-      line-height: 1.35;
+    .diag-step-card.c2 .diag-step-tag {
+      color: #8A6010
     }
 
-    .mq-no {
-      background: var(--bg-gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.2);
+    .diag-step-card.c4 .diag-step-tag {
+      color: #3A6A48
     }
 
-    .mq-no .mq-label {
-      color: #8A6010;
+    .diag-step-title {
+      font: 600 15px/1.2 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 4px
     }
 
-    .mq-no .mq-text {
-      color: var(--gold);
-      font-size: 16px;
+    .diag-step-card.c4 .diag-step-title {
+      color: var(--green-lt)
     }
 
-    /* steps */
+    .diag-step-body {
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--muted)
+    }
+
+    .diag-step-card.c2 .diag-step-body {
+      color: #6A5020
+    }
+
+    .diag-step-card.c4 .diag-step-body {
+      color: var(--green-mid)
+    }
+
+    /* cierre diagnóstico */
+    .diag-close {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px
+    }
+
+    .diag-close-card {
+      padding: 22px 26px;
+      border-radius: 14px
+    }
+
+    .diag-close-card.dark {
+      background: var(--dark);
+      border: 1px solid #1E3820
+    }
+
+    .diag-close-card.gold {
+      background: var(--gold-bg);
+      border: 1px solid rgba(154, 112, 16, .2)
+    }
+
+    .diag-close-text {
+      font: italic 600 20px/1.35 'Cormorant Garamond', serif
+    }
+
+    .diag-close-card.dark .diag-close-text {
+      color: var(--green-mid)
+    }
+
+    .diag-close-card.gold .diag-close-text {
+      color: var(--gold)
+    }
+
+    .diag-close-sub {
+      font-size: 12px;
+      line-height: 1.65;
+      margin-top: 8px
+    }
+
+    .diag-close-card.dark .diag-close-sub {
+      color: #5A7860
+    }
+
+    .diag-close-card.gold .diag-close-sub {
+      color: #6A5020
+    }
+
+    /* DECISIONS */
+    .decisions {
+      background: #EEF2EA;
+      border-top: 1px solid var(--border)
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 42px
+    }
+
+    .core-card {
+      padding: 25px 28px;
+      border-radius: 14px;
+      background: var(--dark);
+      font: italic 600 20px/1.35 'Cormorant Garamond', serif;
+      color: var(--green-mid)
+    }
+
+    .core-card.gold {
+      margin-top: 12px;
+      background: var(--gold-bg);
+      border: 1px solid rgba(154, 112, 16, .2);
+      color: var(--gold)
+    }
+
     .steps {
-      padding-bottom: 80px;
+      display: grid;
+      gap: 12px
     }
 
     .step {
       display: grid;
-      grid-template-columns: 56px 1fr;
+      grid-template-columns: 56px 1fr
     }
 
-    .step:last-child .s-conn {
-      display: none;
-    }
-
-    .s-left {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-    }
-
-    .s-num {
+    .step-num {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      font-weight: 700;
-      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: var(--green-lt);
+      font: 700 10px 'Space Mono', monospace
     }
 
-    .s-conn {
-      width: 0.5px;
-      flex: 1;
-      min-height: 16px;
-      margin: 6px 0;
+    .step:nth-child(2) .step-num {
+      background: var(--gold)
     }
 
-    .s-card {
-      border-radius: 14px;
+    .step:nth-child(4) .step-num {
+      background: var(--ink)
+    }
+
+    .step-card {
       padding: 22px 26px;
-      margin: 0 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--sage)
     }
 
-    .n1 {
-      background: var(--selva);
-      color: var(--selva-lt);
+    .step:nth-child(2) .step-card {
+      background: var(--gold-bg);
+      border-color: rgba(154, 112, 16, .2)
     }
 
-    .c1-conn {
-      background: var(--border);
+    .step:nth-child(4) .step-card {
+      background: var(--dark);
+      border-color: #1E3820;
+      color: var(--green-mid)
     }
 
-    .c1 {
-      background: var(--bg-sage);
-      border: 0.5px solid var(--border);
+    .step-card h3 {
+      margin: 8px 0;
+      font: 600 24px/1.15 'Cormorant Garamond', serif
     }
 
-    .n2 {
-      background: var(--gold);
-      color: #F0E8D0;
-    }
-
-    .c2-conn {
-      background: rgba(154, 112, 16, 0.2);
-    }
-
-    .c2 {
-      background: var(--bg-gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.2);
-    }
-
-    .n3 {
-      background: var(--selva);
-      color: var(--selva-lt);
-    }
-
-    .c3 {
-      background: var(--bg-sage);
-      border: 0.5px solid var(--border);
-    }
-
-    .n4 {
-      background: var(--ink);
-      color: var(--selva-mid);
-    }
-
-    .c4 {
-      background: var(--bg-dark);
-      border: 0.5px solid var(--border-dk);
-    }
-
-    .s-tag-step {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .st-green {
-      color: #3A6A48;
-    }
-
-    .st-gold {
-      color: #8A6010;
-    }
-
-    .st-dk {
-      color: #3A6A48;
-    }
-
-    .s-title-step {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-
-    .stt-dark {
-      color: var(--ink);
-    }
-
-    .stt-light {
-      color: var(--selva-mid);
-    }
-
-    .s-body-step {
+    .step-card p {
       font-size: 13px;
       line-height: 1.75;
+      color: inherit
     }
 
-    .sb-green {
-      color: #3A4A38;
+    /* MEASUREMENT */
+    .measurement {
+      background: var(--sage);
+      border-top: 1px solid var(--border)
     }
 
-    .sb-gold {
-      color: #4A3A18;
-    }
-
-    .sb-dk {
-      color: var(--selva-dim);
-    }
-
-    .s-q {
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 17px;
-      line-height: 1.4;
-    }
-
-    .sq-green {
-      background: rgba(26, 92, 53, 0.08);
-      color: var(--ink);
-    }
-
-    .sq-gold {
-      background: rgba(154, 112, 16, 0.08);
-      color: #3A2A08;
-    }
-
-    .sq-dk {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--selva-mid);
-    }
-
-    .s-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .s-pill {
-      font-size: 10px;
-      padding: 3px 12px;
-      border-radius: 20px;
-    }
-
-    .sp-green {
-      background: rgba(26, 92, 53, 0.1);
-      color: #2A5A30;
-      border: 0.5px solid var(--border);
-    }
-
-    .sp-gold {
-      background: rgba(154, 112, 16, 0.1);
-      color: var(--gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.3);
-    }
-
-    .sp-dk {
-      background: rgba(255, 255, 255, 0.06);
-      color: #6A9878;
-      border: 0.5px solid var(--border-dk);
-    }
-
-    .bisagra {
-      margin: 0 0 12px 56px;
-      padding: 14px 18px;
-      border-radius: 12px;
-      background: var(--bg-gold);
-      border: 1px dashed rgba(154, 112, 16, 0.35);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .bisagra-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F0E8D0;
-      flex-shrink: 0;
-      font-size: 16px;
-    }
-
-    .bisagra-text {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      color: #8A6010;
-      line-height: 1.6;
-      letter-spacing: 0.5px;
-    }
-
-    .bisagra-text strong {
-      color: #5A4010;
-    }
-
-    /* ── PROYECTOS ── */
-    .projects {
-      background: var(--bg);
-      border-top: 0.5px solid var(--border);
-    }
-
-    .projects .wrap {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
-
-    .proj-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .proj-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 44px;
-      color: var(--ink);
-      line-height: 1.05;
-    }
-
-    .proj-title span {
-      color: var(--gold);
-    }
-
-    .proj-sub {
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--hint);
-      max-width: 280px;
-      text-align: right;
-    }
-
-    .proj-grid {
+    .measure-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start
     }
 
-    .proj-card {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 0.5px solid var(--border);
-      background: var(--bg);
+    .measure-title {
+      font: italic 600 clamp(38px, 5vw, 48px)/1.05 'Cormorant Garamond', serif;
+      color: var(--ink);
+      margin-bottom: 20px
+    }
+
+    .measure-title span {
+      color: var(--gold)
+    }
+
+    .measure-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+      margin-bottom: 8px
+    }
+
+    .measure-body strong {
+      color: var(--ink)
+    }
+
+    .measure-statement {
+      margin: 24px 0;
+      padding: 20px 24px;
+      border-radius: 14px;
+      background: var(--dark);
+      font: italic 600 20px/1.35 'Cormorant Garamond', serif;
+      color: var(--green-mid)
+    }
+
+    .measure-statement span {
+      color: var(--gold-lt)
+    }
+
+    .levels {
+      display: grid;
+      gap: 12px
+    }
+
+    .level-card {
+      padding: 22px 26px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white
+    }
+
+    .level-card:nth-child(2) {
+      background: var(--gold-bg);
+      border-color: rgba(154, 112, 16, .2)
+    }
+
+    .level-card:nth-child(3) {
+      background: var(--dark);
+      border-color: #1E3820
+    }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px
+    }
+
+    .level-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: var(--green-lt);
+      font: 700 9px 'Space Mono', monospace;
+      flex-shrink: 0
+    }
+
+    .level-card:nth-child(2) .level-num {
+      background: var(--gold);
+      color: #F0E8D0
+    }
+
+    .level-card:nth-child(3) .level-num {
+      background: rgba(255, 255, 255, .08);
+      color: var(--green-mid)
+    }
+
+    .level-name {
+      font: 600 18px/1.1 'Cormorant Garamond', serif;
+      color: var(--ink)
+    }
+
+    .level-card:nth-child(3) .level-name {
+      color: var(--green-lt)
+    }
+
+    .level-body {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted)
+    }
+
+    .level-card:nth-child(2) .level-body {
+      color: #6A5020
+    }
+
+    .level-card:nth-child(3) .level-body {
+      color: var(--green-mid)
+    }
+
+    .level-indicators {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      cursor: pointer;
+      gap: 6px
+    }
+
+    .level-card:nth-child(2) .level-indicators {
+      border-color: rgba(154, 112, 16, .2)
+    }
+
+    .level-card:nth-child(3) .level-indicators {
+      border-color: #1E3820
+    }
+
+    .level-ind {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--muted)
+    }
+
+    .level-card:nth-child(2) .level-ind {
+      color: #6A5020
+    }
+
+    .level-card:nth-child(3) .level-ind {
+      color: var(--green-mid)
+    }
+
+    .level-ind::before {
+      content: '→';
+      color: var(--green);
+      flex-shrink: 0;
+      font-size: 10px;
+      margin-top: 1px
+    }
+
+    .level-card:nth-child(2) .level-ind::before {
+      color: var(--gold)
+    }
+
+    .level-card:nth-child(3) .level-ind::before {
+      color: var(--green-mid)
+    }
+
+    .measure-close {
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border)
+    }
+
+    .measure-close-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+      margin-bottom: 20px
+    }
+
+    .measure-close-body strong {
+      color: var(--ink)
+    }
+
+    /* PROJECTS */
+    .projects {
+      border-top: 1px solid var(--border)
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: inherit;
       text-decoration: none;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: .2s
     }
 
-    .proj-card:hover {
-      border-color: var(--selva);
+    .project-card:hover {
       transform: translateY(-3px);
+      border-color: var(--green)
     }
 
-    .pc-img {
+    .project-top {
       height: 180px;
-      position: relative;
+      padding: 18px;
       display: flex;
       align-items: flex-end;
-      padding: 16px;
+      background: var(--dark);
+      color: white;
+      position: relative
     }
 
-    .pc-img-1 {
-      background: #0D1E10;
+    .project-card:nth-child(2) .project-top {
+      background: #1A2E18
     }
 
-    .pc-img-2 {
-      background: #1A2E18;
+    .project-card:nth-child(3) .project-top {
+      background: #1C1C1E
     }
 
-    .pc-img-3 {
-      background: #1C1C1E;
-    }
-
-    .pc-badge {
+    .project-badge {
       position: absolute;
       top: 16px;
       left: 16px;
@@ -906,248 +1177,92 @@
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 20px;
-    }
-
-    .pb-1 {
-      background: rgba(154, 112, 16, 0.2);
+      background: rgba(154, 112, 16, .2);
       color: var(--gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.3);
+      border: 1px solid rgba(154, 112, 16, .3)
     }
 
-    .pb-2 {
-      background: rgba(26, 92, 53, 0.2);
-      color: #7ABD90;
-      border: 0.5px solid rgba(26, 92, 53, 0.3);
+    .project-name {
+      font: italic 600 38px/.95 'Cormorant Garamond', serif
     }
 
-    .pb-3 {
-      background: rgba(200, 200, 210, 0.1);
-      color: #A8A8B8;
-      border: 0.5px solid rgba(200, 200, 210, 0.2);
+    .project-name span {
+      color: var(--gold-lt)
     }
 
-    .pc-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      line-height: 0.95;
-      color: #F5F6F2;
+    .project-body {
+      padding: 22px
     }
 
-    .pcn-1 {
-      font-size: 40px;
+    .project-body h3 {
+      margin: 9px 0 15px;
+      font: 600 21px/1.15 'Cormorant Garamond', serif;
+      color: var(--ink)
     }
 
-    .pcn-1 span {
-      color: var(--gold);
+    .project-body p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted)
     }
 
-    .pcn-2 {
-      font-size: 34px;
+    .project-body p+p {
+      margin-top: 14px
     }
 
-    .pcn-2 span {
-      color: #7ABD90;
-    }
-
-    .pcn-3 {
-      font-size: 34px;
-    }
-
-    .pcn-3 span {
-      color: var(--gold-lt);
-    }
-
-    .pc-body {
-      padding: 20px 22px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pc-problem {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
+    .project-body strong {
+      font: 700 9px 'Space Mono', monospace;
       letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--hint);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--gold)
     }
 
-    .pc-problem::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--selva);
+    .project-link {
       display: block;
-      flex-shrink: 0;
-    }
-
-    .pc-ttl {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 19px;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .pc-desc {
-      font-size: 12px;
-      line-height: 1.65;
-      color: var(--muted);
-      flex: 1;
-      margin-bottom: 14px;
-    }
-
-    .pc-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .pc-tag {
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      background: var(--bg-sage);
-      color: #2A5A30;
-      border: 0.5px solid var(--border);
-    }
-
-    .pc-tag-gold {
-      background: var(--bg-gold);
-      color: var(--gold);
-      border-color: rgba(154, 112, 16, 0.2);
-    }
-
-    .pc-doc-badge {
-      display: inline-flex;
-      align-items: center;
-
-      margin-bottom: 1rem;
-      padding: .4rem .8rem;
-
-      border-radius: 999px;
-
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .08em;
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+      font: 700 10px 'Space Mono', monospace;
+      letter-spacing: 1px;
       text-transform: uppercase;
-
-      color: #9f8a5b;
-
-      background: rgba(159, 138, 91, .08);
-      border: 1px solid rgba(159, 138, 91, .16);
+      color: var(--green)
     }
 
-    .pc-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 14px;
-      border-top: 0.5px solid #E0E8DC;
-    }
-
-    .pc-bloqueo {
-      font-size: 11px;
-      color: var(--hint);
-      font-style: italic;
-    }
-
-    .pc-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--selva);
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .proj-note {
-      margin-top: 24px;
-      padding: 14px 20px;
-      border-radius: 10px;
-      background: var(--bg-sage);
-      border: 0.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .pn-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--selva);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--selva-lt);
-      flex-shrink: 0;
-      font-size: 15px;
-    }
-
-    .pn-text {
-      font-size: 12px;
-      line-height: 1.65;
-      color: #3A4A38;
-    }
-
-    .pn-text strong {
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    /* ── SOBRE MÍ ── */
+    /* ABOUT */
     .about {
-      background: var(--bg);
-      border-top: 0.5px solid var(--border);
+      background: var(--sage)
     }
 
-    .about .wrap {
-      padding-top: 80px;
-      padding-bottom: 40px;
+    .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 70px;
+      align-items: start
     }
 
     .about-logo-wrap {
       position: relative;
-      width: 180px;
-      height: 180px;
-      margin-bottom: 28px;
+      width: 160px;
+      height: 160px;
+      margin-bottom: 28px
     }
 
     .about-logo-ring {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 1.5px solid var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--bg);
-      overflow: hidden;
+      overflow: hidden
     }
 
     .about-logo-ring img {
-      width: 164px;
-      height: 164px;
+      width: 146px;
+      height: 146px;
       object-fit: contain;
-      border-radius: 50%;
+      border-radius: 50%
     }
 
     .about-logo-tag {
@@ -1162,186 +1277,88 @@
       background: var(--bg);
       padding: 3px 12px;
       color: var(--gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.3);
+      border: 0.5px solid rgba(154, 112, 16, .3);
       border-radius: 20px;
-      white-space: nowrap;
+      white-space: nowrap
     }
 
-    .about-stats {
+    .astats {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 24px
     }
 
     .astat {
       display: flex;
       align-items: baseline;
       gap: 12px;
-      padding-bottom: 12px;
-      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 0.5px solid var(--border)
     }
 
     .astat:last-child {
       border-bottom: none;
-      padding-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0
     }
 
     .astat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 34px;
+      font: 600 32px/1 'Cormorant Garamond', serif;
       color: var(--ink);
-      flex-shrink: 0;
+      flex-shrink: 0
     }
 
     .astat-num span {
       color: var(--gold);
-      font-size: 18px;
+      font-size: 18px
     }
 
     .astat-label {
       font-size: 12px;
       font-weight: 300;
       line-height: 1.5;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .astat-label strong {
       font-weight: 600;
       color: var(--ink);
-      display: block;
+      display: block
     }
 
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .atag {
-      font-size: 10px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 0.5px solid var(--border);
-      color: #3A5A38;
-      background: var(--bg-sage);
-    }
-
-    .atag-gold {
-      background: var(--bg-gold);
-      color: var(--gold);
-      border-color: rgba(154, 112, 16, 0.25);
-    }
-
-    .about-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 44px;
-      color: var(--ink);
-      line-height: 1.05;
-      margin-bottom: 24px;
-    }
-
-    .about-title span {
-      color: var(--gold);
-    }
-
-    .about-p {
+    .about p {
+      margin-top: 16px;
       font-size: 14px;
       font-weight: 300;
-      line-height: 1.9;
-      color: #4A5A48;
-      margin-bottom: 18px;
+      line-height: 1.85;
+      color: #4A5A48
     }
 
-    .about-p strong {
-      font-weight: 600;
-      color: var(--ink);
+    .thesis {
+      margin-top: 25px;
+      padding: 22px 25px;
+      border-radius: 14px;
+      background: var(--dark);
+      font: italic 600 23px 'Cormorant Garamond', serif;
+      color: var(--green-mid)
     }
 
-    .about-thesis {
-      padding: 18px 22px;
-      border-radius: 12px;
-      background: var(--bg-dark);
-      margin-bottom: 28px;
-    }
-
-    .at-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #2A5A30;
-      margin-bottom: 8px;
-    }
-
-    .at-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 22px;
-      color: #F5F6F2;
-      line-height: 1.3;
-    }
-
-    .at-text span {
-      color: var(--gold);
-    }
-
-    .about-cta-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .cta-pill-sm {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--selva);
-      color: var(--selva-lt);
-      border: none;
-      border-radius: 40px;
-      padding: 12px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .cta-pill-sm:hover {
-      opacity: 0.88;
-    }
-
-    .cta-ghost-sm {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--hint);
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-decoration: underline;
-      text-underline-offset: 5px;
+    .thesis span {
+      color: var(--gold-lt)
     }
 
     .about-formation {
-      background: var(--bg-sage);
       border-top: 0.5px solid var(--border);
-      padding: 3px 0;
+      margin-top: 48px
     }
 
-    .about-formation .wrap {
+    .about-formation-inner {
       display: grid;
       grid-template-columns: auto 1fr 1fr;
       gap: 40px;
       align-items: center;
+      padding: 32px 0
     }
 
     .af-label {
@@ -1351,673 +1368,249 @@
       text-transform: uppercase;
       color: var(--hint);
       writing-mode: vertical-rl;
-      transform: rotate(180deg);
+      transform: rotate(180deg)
     }
 
     .af-item {
       padding-left: 24px;
-      border-left: 0.5px solid var(--border);
+      border-left: 0.5px solid var(--border)
     }
 
     .af-institution {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-style: italic;
-      font-size: 19px;
+      font: italic 600 19px/1.2 'Cormorant Garamond', serif;
       color: var(--ink);
-      margin-bottom: 3px;
+      margin-bottom: 3px
     }
 
     .af-degree {
       font-size: 12px;
       color: var(--muted);
-      margin-bottom: 3px;
+      margin-bottom: 3px
     }
 
     .af-year {
       font-family: 'Space Mono', monospace;
       font-size: 9px;
       letter-spacing: 1.5px;
-      color: var(--gold);
+      color: var(--gold)
     }
 
-    /* ── SERVICIOS ── */
-    .services {
-      background: var(--bg);
-      border-top: 0.5px solid var(--border);
-    }
-
-    .services .wrap {
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
-
-    .srv-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: end;
-      margin-bottom: 48px;
-    }
-
-    .srv-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 44px;
-      color: var(--ink);
-      line-height: 1.05;
-    }
-
-    .srv-title span {
-      color: var(--gold);
-    }
-
-    .srv-note {
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--hint);
-    }
-
-    .srv-note strong {
-      color: #4A5A48;
-      font-weight: 500;
-    }
-
-    .srv-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .srv-card {
-      border-radius: 14px;
-      padding: 26px 28px;
-      border: 0.5px solid var(--border);
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.2s;
-    }
-
-    .srv-card:hover {
-      border-color: var(--selva);
-    }
-
-    .srv-card-dk {
-      background: var(--bg-dark);
-      border-color: var(--border-dk);
-    }
-
-    .srv-card-dk:hover {
-      border-color: var(--selva);
-    }
-
-    .srv-card-gd {
-      background: var(--bg-gold);
-      border-color: rgba(154, 112, 16, 0.25);
-    }
-
-    .srv-num-lbl {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .snl-green {
-      color: #3A6A48;
-    }
-
-    .snl-lt {
-      color: #2A5A30;
-    }
-
-    .snl-gold {
-      color: #8A6010;
-    }
-
-    .srv-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-
-    .si-g {
-      background: var(--bg-sage);
-      color: var(--selva);
-    }
-
-    .si-dk {
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--selva-mid);
-    }
-
-    .si-gd {
-      background: rgba(154, 112, 16, 0.1);
-      color: var(--gold);
-    }
-
-    .srv-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 22px;
-      line-height: 1.1;
-    }
-
-    .sn-dark {
-      color: var(--ink);
-    }
-
-    .sn-white {
-      color: #F5F6F2;
-    }
-
-    .sn-ochr {
-      color: #3A2A08;
-    }
-
-    .srv-desc {
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .sd-g {
-      color: var(--muted);
-    }
-
-    .sd-dk {
-      color: var(--selva-dim);
-    }
-
-    .sd-gd {
-      color: #6A5020;
-    }
-
-    .srv-for {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 20px;
-      width: fit-content;
-    }
-
-    .sf-g {
-      background: var(--bg-sage);
-      color: #2A5A30;
-      border: 0.5px solid var(--border);
-    }
-
-    .sf-dk {
-      background: rgba(255, 255, 255, 0.06);
-      color: #7ABD90;
-      border: 0.5px solid var(--border-dk);
-    }
-
-    .sf-gd {
-      background: rgba(154, 112, 16, 0.1);
-      color: var(--gold);
-      border: 0.5px solid rgba(154, 112, 16, 0.2);
-    }
-
-    .srv-del {
-      margin-top: 4px;
-      padding-top: 12px;
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    .sd-bd-g {
-      border-top: 0.5px solid var(--border);
-      color: #3A4A38;
-    }
-
-    .sd-bd-dk {
-      border-top: 0.5px solid var(--border-dk);
-      color: var(--selva-dim);
-    }
-
-    .sd-bd-gd {
-      border-top: 0.5px solid rgba(154, 112, 16, 0.2);
-      color: #6A5020;
-    }
-
-    .srv-del strong {
-      font-weight: 600;
-    }
-
-    /* ── SEPARATOR BAND ── */
-    .sep-band {
-      background: var(--bg-dark);
-    }
-
-    .sep-band .wrap {
-      padding-top: 48px;
-      padding-bottom: 48px;
-      text-align: center;
-    }
-
-    .sep-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 32px;
-      color: #F5F6F2;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .sep-title span {
-      color: var(--gold);
-    }
-
-    .sep-body {
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: #A8C8B0;
-    }
-
-    /* ── CONTACTO ── */
+    /* CONTACT */
     .contact {
-      background: var(--bg);
-      border-top: 0.5px solid var(--border);
+      background: var(--dark);
+      color: var(--green-mid)
     }
 
-    .contact .wrap {
-      padding-top: 80px;
-      padding-bottom: 80px;
+    .contact .eyebrow-text {
+      color: #6A9878
+    }
+
+    .contact .eyebrow-line {
+      background: var(--gold)
+    }
+
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 70px
     }
 
-    .c-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 44px;
-      color: var(--ink);
-      line-height: 1.05;
-      margin-bottom: 16px;
+    .contact .section-title {
+      color: #EAF0E6
     }
 
-    .c-title span {
-      color: var(--selva);
+    .contact .section-title span {
+      color: var(--gold-lt)
     }
 
-    .c-body {
+    .contact p {
+      margin: 25px 0;
       font-size: 14px;
-      font-weight: 300;
       line-height: 1.85;
-      color: #4A5A48;
-      margin-bottom: 24px;
+      color: #A8C8B0
     }
 
-    .c-body strong {
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .c-question {
-      padding: 18px 22px;
-      border-radius: 12px;
-      background: var(--bg-sage);
-      border: 0.5px solid var(--border);
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 19px;
-      color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 28px;
-    }
-
-    .c-question span {
-      color: var(--selva);
-    }
-
-    .c-actions {
+    .contact-actions {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 12px
     }
 
-    .c-btn-p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--selva);
-      color: var(--selva-lt);
-      border: none;
-      border-radius: 40px;
-      padding: 16px 32px;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .contact-actions a {
+      padding: 13px 18px;
+      border: 1px solid #35583A;
+      border-radius: 30px;
+      color: var(--green-mid);
+      font-size: 10px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      cursor: pointer;
       text-decoration: none;
-      transition: opacity 0.2s;
+      transition: .2s
     }
 
-    .c-btn-p:hover {
-      opacity: 0.88;
+    .contact-actions a:hover {
+      background: #35583A
     }
 
-    .c-btn-s {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--selva);
-      border: 1px solid var(--selva);
-      border-radius: 40px;
-      padding: 14px 32px;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+    .contact-cards {
+      display: grid;
+      gap: 12px
     }
 
-    .c-btn-s:hover {
-      background: var(--selva);
-      color: var(--selva-lt);
+    .contact-card {
+      padding: 20px;
+      border: 1px solid #1E3820;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .03)
     }
 
-    .c-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .contact-card h3 {
+      margin: 8px 0;
+      font: 600 21px 'Cormorant Garamond', serif;
+      color: #D8E8D2
     }
 
-    .c-card {
-      border-radius: 12px;
-      padding: 18px 22px;
-      background: var(--bg);
-      border: 0.5px solid var(--border);
+    .contact-card p {
+      margin: 0;
+      font-size: 12px
     }
 
-    .cc-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--hint);
-      margin-bottom: 6px;
-    }
-
-    .cc-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 17px;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-
-    .cc-text {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .c-thesis {
-      padding: 18px 22px;
-      border-radius: 12px;
-      background: var(--selva);
-      text-align: center;
-    }
-
-    .ct-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 20px;
-      color: #F5F6F2;
-      line-height: 1.3;
-    }
-
-    .ct-text span {
-      color: var(--gold-lt);
-    }
-
-    /* ── FOOTER ── */
     footer {
-      background: var(--bg-darker);
+      padding: 28px 0;
+      background: #080F0A;
+      border-top: 1px solid #1E3820
     }
 
     footer .wrap {
-      padding-top: 28px;
-      padding-bottom: 28px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 20px;
-      color: #F5F6F2;
-      text-decoration: none;
-    }
-
-    .footer-logo span {
-      color: var(--gold);
+      align-items: center;
+      gap: 24px
     }
 
     .footer-copy {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #A8C8B0;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
+      font-size: 10px;
+      color: #4A6850
     }
 
     .footer-links a {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #A8C8B0;
-      text-decoration: none;
-      transition: color 0.2s;
+      color: #6A9878
     }
 
-    .footer-links a:hover {
-      color: var(--selva-mid);
-    }
-
-    /* ── ICONS (Tabler inline SVG fallback) ── */
-    .icon {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 28px;
-      color: var(--selva);
-      cursor: pointer;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-
-      .nav {
-        height: auto;
-        padding: 18px 0;
-      }
-
-      .nav .wrap {
-        position: relative;
-      }
-
+    /* RESPONSIVE */
+    @media(max-width:900px) {
       .menu-toggle {
-        display: block;
+        display: block
       }
 
       .nav-menu {
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        width: 100%;
-
         display: none;
+        position: absolute;
+        top: 88px;
+        left: 0;
+        right: 0;
+        height: auto;
+        padding: 28px var(--pad);
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
         flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-
-        padding: 24px;
-
-        background: rgba(245, 246, 242, 0.98);
-        backdrop-filter: blur(12px);
-
-        border: 0.5px solid var(--border);
-        border-radius: 16px;
+        align-items: stretch
       }
 
       .nav-menu.active {
-        display: flex;
+        display: flex
       }
 
       .nav-links {
         flex-direction: column;
-        gap: 18px;
-        align-items: center;
-      }
-
-      .nav-cta {
-        width: 100%;
-        text-align: center;
+        gap: 22px
       }
 
       .hero .wrap,
-      .method-intro,
-      .about .wrap,
-      .contact .wrap {
+      .intro-grid,
+      .about-grid,
+      .contact-grid,
+      .measure-layout {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        min-height: auto
+      }
+
+      .hero-cards {
+        display: none
+      }
+
+      .card-grid,
+      .project-grid,
+      .diag-steps-col,
+      .diag-close {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .diag-steps-col::before {
+        display: none
+      }
+
+      .inv-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .about-formation-inner {
         grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .hero .wrap {
-        padding-top: 48px;
-      }
-
-      .hero-right {
-        display: none;
-      }
-
-      .dark-band .wrap {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .db {
-        border-left: none;
-        padding-left: 0;
-        border-top: 0.5px solid var(--border-dk);
-        padding-top: 24px;
-      }
-
-      .db:first-child {
-        border-top: none;
-        padding-top: 0;
-      }
-
-      .proj-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .srv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .srv-header {
-        grid-template-columns: 1fr;
-      }
-
-      .proj-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .proj-sub {
-        text-align: left;
-        max-width: 100%;
-      }
-
-      .about .wrap {
-        padding-bottom: 0;
-      }
-
-      .about-formation .wrap {
-        grid-template-columns: 1fr;
+        gap: 20px
       }
 
       .af-label {
         writing-mode: horizontal-tb;
-        transform: none;
-        margin-bottom: 8px;
+        transform: none
       }
 
       .af-item {
         border-left: none;
         padding-left: 0;
         border-top: 0.5px solid var(--border);
-        padding-top: 16px;
+        padding-top: 16px
+      }
+    }
+
+    @media(max-width:620px) {
+      section:not(.hero) {
+        padding: 60px 0
       }
 
+      .hero .wrap {
+        padding-top: 60px;
+        padding-bottom: 70px
+      }
+
+      .hero-actions,
+      .section-head,
       footer .wrap {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .card-grid,
+      .project-grid,
+      .diag-steps-col,
+      .diag-close,
+      .inv-grid {
+        grid-template-columns: 1fr
+      }
+
+      .section-copy {
+        max-width: none
+      }
+
+      .formation {
+        grid-template-columns: 1fr
       }
 
       .footer-links {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-      }
-
-      .footer-copy {
-        line-height: 1.6;
+        gap: 15px
       }
     }
   </style>
@@ -2036,74 +1629,55 @@
 <body>
 
   <!-- NAV -->
-  <header class="nav">
+  <nav class="nav" aria-label="Navegación principal">
     <div class="wrap">
-
       <a href="#" class="nav-logo">Eilyn <span>Ginoe</span></a>
-
-      <button class="menu-toggle" aria-label="Abrir menú">
-        ☰
-      </button>
-
+      <button class="menu-toggle" aria-label="Abrir menú"
+        aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-menu">
         <ul class="nav-links">
-          <li><a href="#metodo">método</a></li>
-          <li><a href="#proyectos">proyectos</a></li>
-          <li><a href="#sobre-mi">sobre mí</a></li>
-          <li><a href="#servicios">servicios</a></li>
+          <li><a href="#sintomas">diagnóstico</a></li>
+          <li><a href="#metodo">enfoque</a></li>
+          <li><a href="#medicion">medición</a></li>
+          <li><a href="#proyectos">casos</a></li>
+          <li><a href="#sobre-mi">fundamentos</a></li>
         </ul>
-     
+        <a href="#contacto" class="nav-cta">hablemos</a>
       </div>
-
     </div>
-  </header>
+  </nav>
 
   <!-- HERO -->
   <section class="hero" aria-label="Presentación principal">
     <div class="hero-blob" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="hero-left">
-        <div class="hero-tag">
-          <div class="hero-tag-line"></div>
-          <span class="hero-tag-text">diseño experiencias que cambian conductas</span>
-        </div>
-        <div class="hero-title">
-          <span class="t-serif">DISEÑO</span>
+      <div>
+        <div class="hero-tag">investigación antes que solución</div>
+        <div class="hero-role">Diseño de experiencias de aprendizaje · LXD</div>
+        <h1 class="hero-title">
+          <span class="t-serif">diseño</span>
           <span class="t-bold">que transforma</span>
           <span class="t-gold">conductas.</span>
-        </div>
-        <p class="hero-sub">
-          La mayoría de los cursos terminan siendo un PDF que nadie vuelve a abrir.
-          Yo diseño desde otra pregunta: <strong>¿qué tiene que pasar en la mente de quien aprende para que algo
-            realmente cambie?</strong>
-        </p>
-        <div class="hero-cta-row">
-          <a href="#proyectos" class="cta-pill">
-            ver cómo trabajo
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-          <button class="cta-ghost" onclick="document.getElementById('metodo').scrollIntoView({behavior:'smooth'})">ver
-            mi método</button>
+        </h1>
+        <p class="hero-sub">La mayoría de los proyectos empiezan con una solución.<br><br>Yo empiezo con una
+          pregunta:<br><strong>¿Estamos resolviendo el problema correcto?</strong></p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="pill">ver casos →</a>
+          <button class="ghost" onclick="document.getElementById('sintomas').scrollIntoView({behavior:'smooth'})">ver
+            enfoque</button>
         </div>
       </div>
-      <div class="hero-right" aria-hidden="true">
-        <div class="fcard">
-          <div class="fcard-dot">economía de la atención</div>
-          <div class="fcard-title">El foco es el recurso más escaso</div>
-          <p class="fcard-body">No diseño contenido — diseño el recorrido cognitivo que lleva del saber al hacer.</p>
-        </div>
-        <div class="fcard-gold">
+      <div class="hero-cards">
+        <article class="mini-card">
+          <div class="mini-card-dot">economía de la atención</div>
+          <h2>El foco es el recurso más escaso</h2>
+          <p>No diseño contenido — diseño el recorrido cognitivo que lleva del saber al hacer.</p>
+        </article>
+        <div class="mini-card-gold">
           <div class="fg-num">12<span>+</span></div>
           <div class="fg-label">proyectos<br>completados</div>
         </div>
-        <div class="fcard">
-          <div class="fcard-dot">cambio de comportamiento</div>
-          <div class="fcard-title">El objetivo no es saber más</div>
-          <p class="fcard-body">Es actuar diferente. Aplico economía del comportamiento para que el aprendizaje se
-            vuelva hábito.</p>
-        </div>
+        <div class="question-card">¿Por qué empiezas por esa pregunta?</div>
       </div>
     </div>
     <div class="hero-scroll" aria-hidden="true">
@@ -2112,473 +1686,454 @@
     </div>
   </section>
 
-  <!-- DARK BAND -->
-  <section class="dark-band" aria-label="Áreas de trabajo">
+  <!-- SYMPTOMS -->
+  <section class="symptoms" id="sintomas" aria-label="Diferencia entre síntomas y causas">
     <div class="wrap">
-      <div class="db">
-        <div class="db-n">01 —</div>
-        <div class="db-tg">Diseño instruccional</div>
-        <p class="db-b">Estructuro el conocimiento para que la mente lo retenga. No diseño contenido — diseño el
-          recorrido cognitivo que lleva del saber al hacer.</p>
+      <header class="section-head">
+        <div>
+          <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">por qué investigar</span></div>
+          <h2 class="section-title">Los síntomas suelen<br>parecer <span>causas.</span></h2>
+        </div>
+        <p class="section-copy">Muchas organizaciones piden capacitación cuando el problema real puede estar en otro
+          lugar.</p>
+      </header>
+      <div class="card-grid">
+        <article class="contrast-card"><span class="label">lo que parece</span>
+          <h3>Falta conocimiento</h3>
+          <p>La respuesta inmediata es agregar contenido.</p>
+          <p class="reveal"><strong>Lo que realmente puede ser ↓</strong>Acceso: la persona sabe, pero la información no
+            está disponible cuando debe actuar.</p>
+        </article>
+        <article class="contrast-card"><span class="label">lo que parece</span>
+          <h3>Falta compromiso</h3>
+          <p>El bajo desempeño se interpreta como resistencia.</p>
+          <p class="reveal"><strong>Lo que realmente puede ser ↓</strong>Motivación: la tarea no ofrece autonomía,
+            relevancia ni una razón visible para cambiar.</p>
+        </article>
+        <article class="contrast-card"><span class="label">lo que parece</span>
+          <h3>Falta práctica</h3>
+          <p>Se añaden ejercicios sin revisar el trabajo real.</p>
+          <p class="reveal"><strong>Lo que realmente puede ser ↓</strong>Contexto o procesos: el entorno impide aplicar
+            una habilidad ya adquirida.</p>
+        </article>
+        <article class="contrast-card"><span class="label">lo que parece</span>
+          <h3>Falta capacidad</h3>
+          <p>El error se atribuye a la persona.</p>
+          <p class="reveal"><strong>Lo que realmente puede ser ↓</strong>Sobrecarga cognitiva: la tarea exige más
+            atención de la que el momento permite.</p>
+        </article>
       </div>
-      <div class="db">
-        <div class="db-n">02 —</div>
-        <div class="db-td">Economía de la atención</div>
-        <p class="db-b">El recurso más escaso no es el tiempo, es el foco. Diseño experiencias que lo capturan y lo
-          sostienen — sin trucos, con arquitectura.</p>
-      </div>
-      <div class="db">
-        <div class="db-n">03 —</div>
-        <div class="db-tg">Cambio de comportamiento</div>
-        <p class="db-b">El objetivo no es que las personas sepan más. Es que actúen diferente. Aplico economía del
-          comportamiento para que el aprendizaje se convierta en hábito.</p>
-      </div>
+      <div class="transition"><b>Antes de diseñar cualquier solución necesito descubrir qué está impidiendo realmente el
+          desempeño.</b> ¿Cómo descubres eso?</div>
     </div>
   </section>
 
-  <!-- MÉTODO -->
-  <section class="method" id="metodo" aria-label="Mi método de diseño">
+  <!-- DIAGNOSIS -->
+  <section class="diagnosis" id="diagnostico" aria-label="Proceso de diagnóstico">
     <div class="wrap">
-      <div class="method-intro">
-        <div>
-          <div class="eyebrow">
-            <div class="eyebrow-line"></div>
-            <span class="eyebrow-text">cómo pienso antes de diseñar</span>
-          </div>
-          <div class="method-title">Cuatro preguntas.<br>Ninguna es <span>"¿qué contenido incluimos?"</span></div>
-          <p class="method-body">La mayoría de los proyectos llegan con una solución ya definida. Mi trabajo empieza
-            antes — en las preguntas que nadie hizo. <strong>El formato siempre es la última decisión, nunca la
-              primera.</strong></p>
-        </div>
-        <div>
-          <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px;">
-            <div
-              style="border-radius:12px;padding:18px 20px;background:var(--bg-dark);border:0.5px solid var(--border-dk);">
-              <div
-                style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#2A5A30;margin-bottom:8px;">
-                estructura del proceso</div>
-              <div
-                style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:18px;color:#F5F6F2;margin-bottom:4px;">
-                Backward Design</div>
-              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold-lt);margin-bottom:8px;">
-                Wiggins & McTighe, 1998</div>
-              <p style="font-size:12px;line-height:1.65;color:#5A7860;">Primero el resultado esperado, luego la
-                evidencia de logro, al final la experiencia que lo hace posible. El contenido nunca precede al
-                propósito.</p>
-            </div>
-            <div
-              style="border-radius:12px;padding:18px 20px;background:var(--bg-gold);border:0.5px solid rgba(154,112,16,0.25);">
-              <div
-                style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#8A6010;margin-bottom:8px;">
-                fundamentación de decisiones</div>
-              <div
-                style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:18px;color:#3A2A08;margin-bottom:4px;">
-                Psicología cognitiva y del comportamiento</div>
-              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);margin-bottom:8px;">Bjork ·
-                Sweller · Cialdini · Kahneman</div>
-              <p style="font-size:12px;line-height:1.65;color:#6A5020;">Cada decisión de diseño descansa sobre un
-                principio verificable con autor y año — no sobre convención instruccional.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">cómo encontrar la causa</span></div>
+      <h2 class="diag-title">Diagnosticar antes<br>de <span>diseñar.</span></h2>
+      <p class="diag-body">Antes de decidir qué construir, necesito responder una pregunta:</p>
+      <div class="diag-question">¿Qué está impidiendo que esta persona haga lo que ya debería poder hacer?</div>
+      <p class="diag-body">Porque el problema podría ser conocimiento.<br>Pero también podría ser motivación, contexto,
+        acceso o desempeño.</p>
 
-    <div class="wrap steps">
-      <!-- paso 1 -->
-      <div class="step">
-        <div class="s-left">
-          <div class="s-num n1">01</div>
-          <div class="s-conn c1-conn"></div>
+      <div class="diag-divider"></div>
+
+      <!-- LO QUE INVESTIGO -->
+      <div class="diag-sub">Lo que investigo</div>
+      <div class="inv-grid">
+        <div class="inv-item">
+          <div class="inv-check"><svg viewBox="0 0 12 12">
+              <polyline points="2,6 5,9 10,3" />
+            </svg></div>
+          <div class="inv-label">Conocimiento</div>
+          <div class="inv-sub">¿La persona sabe qué hacer?</div>
         </div>
-        <div class="s-card c1">
-          <div class="s-tag-step st-green">conducta · antes que contenido</div>
-          <div class="s-title-step stt-dark">¿Qué necesita hacer diferente esta persona?</div>
-          <p class="s-body-step sb-green">No qué necesita saber — qué necesita <strong>hacer</strong>. Esta pregunta
-            reencuadra el proyecto desde el inicio: el objetivo nunca es un certificado, es un cambio observable en la
-            conducta de alguien.</p>
-          <div class="s-q sq-green"><strong>"¿Qué necesita hacer diferente esta persona después de esta
-              capacitación?"</strong></div>
-          <div class="s-pills">
-            <span class="s-pill sp-green">manejar objeciones sin paralizarse</span>
-            <span class="s-pill sp-green">tomar decisiones bajo presión</span>
-            <span class="s-pill sp-green">explicar qué es Python y decidir si quiere continuar</span>
+        <div class="inv-item">
+          <div class="inv-check"><svg viewBox="0 0 12 12">
+              <polyline points="2,6 5,9 10,3" />
+            </svg></div>
+          <div class="inv-label">Habilidad</div>
+          <div class="inv-sub">¿Puede hacerlo?</div>
+        </div>
+        <div class="inv-item">
+          <div class="inv-check"><svg viewBox="0 0 12 12">
+              <polyline points="2,6 5,9 10,3" />
+            </svg></div>
+          <div class="inv-label">Motivación</div>
+          <div class="inv-sub">¿Quiere hacerlo?</div>
+        </div>
+        <div class="inv-item">
+          <div class="inv-check"><svg viewBox="0 0 12 12">
+              <polyline points="2,6 5,9 10,3" />
+            </svg></div>
+          <div class="inv-label">Entorno</div>
+          <div class="inv-sub">¿El contexto lo facilita?</div>
+        </div>
+        <div class="inv-item">
+          <div class="inv-check"><svg viewBox="0 0 12 12">
+              <polyline points="2,6 5,9 10,3" />
+            </svg></div>
+          <div class="inv-label">Acceso</div>
+          <div class="inv-sub">¿Tiene la información cuando la necesita?</div>
+        </div>
+      </div>
+
+      <!-- CÓMO OBTENGO EVIDENCIA -->
+      <div class="chips-block" style="margin-top:0;margin-bottom:32px">
+        <div class="chips-label">Cómo obtengo evidencia</div>
+        <div class="chips">
+          <span class="chip">Análisis de necesidades</span>
+          <span class="chip">Task Analysis</span>
+          <span class="chip">Entrevistas</span>
+          <span class="chip">Observación</span>
+          <span class="chip">Análisis de desempeño</span>
+          <span class="chip">Análisis de competencias</span>
+          <span class="chip chip-gold">Nine Box</span>
+          <span class="chip">Revisión documental</span>
+        </div>
+      </div>
+
+      <div class="diag-divider"></div>
+
+      <!-- CÓMO INTERPRETO LA EVIDENCIA -->
+      <div class="diag-sub" style="margin-bottom:20px">Cómo interpreto la evidencia</div>
+      <div class="diag-steps-col">
+        <div class="diag-step-item">
+          <div class="diag-step-num">01</div>
+          <div class="diag-step-card">
+            <div class="diag-step-tag">observar</div>
+            <div class="diag-step-title">Mirar lo que ocurre, no solo lo que se reporta.</div>
+            <p class="diag-step-body">El desempeño real revela fricciones que una petición de proyecto suele ocultar.
+            </p>
+          </div>
+        </div>
+        <div class="diag-step-item">
+          <div class="diag-step-num n2">02</div>
+          <div class="diag-step-card c2">
+            <div class="diag-step-tag">detectar patrones</div>
+            <div class="diag-step-title">Distinguir un incidente de una condición repetida.</div>
+            <p class="diag-step-body">Los patrones muestran cuándo, dónde y para quién aparece el bloqueo.</p>
+          </div>
+        </div>
+        <div class="diag-step-item">
+          <div class="diag-step-num">03</div>
+          <div class="diag-step-card">
+            <div class="diag-step-tag">formular hipótesis</div>
+            <div class="diag-step-title">Proponer explicaciones que puedan contrastarse.</div>
+            <p class="diag-step-body">Una hipótesis organiza la evidencia sin convertir la primera intuición en certeza.
+            </p>
+          </div>
+        </div>
+        <div class="diag-step-item">
+          <div class="diag-step-num n4">04</div>
+          <div class="diag-step-card c4">
+            <div class="diag-step-tag">identificar causa probable</div>
+            <div class="diag-step-title">Encontrar el bloqueo con mayor poder explicativo.</div>
+            <p class="diag-step-body">El diagnóstico define qué tendría que cambiar para que el desempeño cambie.</p>
           </div>
         </div>
       </div>
-      <!-- paso 2 -->
-      <div class="step">
-        <div class="s-left">
-          <div class="s-num n2">02</div>
-          <div class="s-conn c2-conn"></div>
+
+      <!-- CIERRE -->
+      <div class="diag-close">
+        <div class="diag-close-card dark">
+          <div class="diag-close-text">Dos problemas pueden parecer iguales.</div>
+          <p class="diag-close-sub">El bajo desempeño tiene muchas caras. Confundirlas es el error más costoso que puede
+            cometer un proyecto de aprendizaje.</p>
         </div>
-        <div class="s-card c2">
-          <div class="s-tag-step st-gold">diagnóstico · desde la ciencia</div>
-          <div class="s-title-step stt-dark">¿Qué está bloqueando esa conducta?</div>
-          <p class="s-body-step sb-gold">Un bloqueo es lo que impide que el aprendizaje ocurra o se convierta en acción.
-            Puede ser cognitivo — el cerebro recibe más de lo que puede procesar. Emocional — el aprendiz no se
-            identifica con el tema. O de acceso — el conocimiento existe pero no está disponible cuando se necesita.
-            <strong>Identificar cuál es cambia completamente lo que hay que diseñar.</strong>
+        <div class="diag-close-card gold">
+          <div class="diag-close-text">Si la causa es distinta, la intervención también debe serlo.</div>
+          <p class="diag-close-sub">No existe un formato correcto. Existe el formato que responde al bloqueo real.</p>
+        </div>
+      </div>
+
+      <div class="transition" style="margin-top:28px"><b>La investigación ya tiene una causa probable.</b> ¿Qué haces
+        cuando encuentras la causa?</div>
+    </div>
+  </section>
+
+  <!-- DECISIONS -->
+  <section class="decisions" id="metodo" aria-label="Decisiones posteriores al diagnóstico">
+    <div class="wrap">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">del hallazgo a la
+              intervención</span></div>
+          <h2 class="section-title">La causa determina<br>la <span>intervención.</span></h2>
+        </div>
+        <p class="section-copy"><strong>El formato nunca es la primera decisión.</strong><br>Es una
+          consecuencia.<br><br>Una vez identificada la causa, aparecen cuatro decisiones.</p>
+      </header>
+      <div class="steps">
+        <article class="step">
+          <div class="step-num">01</div>
+          <div class="step-card"><span class="label">resultado</span>
+            <h3>¿Qué conducta debe cambiar?</h3>
+            <p>Una acción observable evita confundir exposición al contenido con desempeño.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-num">02</div>
+          <div class="step-card"><span class="label">bloqueo</span>
+            <h3>¿Qué impide hoy esa conducta?</h3>
+            <p>La evidencia ubica la fricción en acceso, contexto, motivación, carga o proceso.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-num">03</div>
+          <div class="step-card"><span class="label">condición de cambio</span>
+            <h3>¿Qué tendría que ocurrir para desactivar el bloqueo?</h3>
+            <p>La respuesta define el mecanismo que la intervención debe activar.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-num">04</div>
+          <div class="step-card"><span class="label">intervención</span>
+            <h3>¿Cuál es la intervención mínima en el momento correcto?</h3>
+            <p>Solo ahora aparece el formato, como consecuencia lógica del diagnóstico.</p>
+          </div>
+        </article>
+      </div>
+      <div class="transition"><b>Las decisiones ya tienen forma.</b> ¿Cómo sabes que van a funcionar?</div>
+    </div>
+  </section>
+
+  <!-- MEASUREMENT -->
+  <section class="measurement" id="medicion" aria-label="Cómo se mide el éxito">
+    <div class="wrap">
+      <div class="measure-layout">
+        <div>
+          <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">cómo se mide el éxito</span></div>
+          <h2 class="measure-title">Diseñar el éxito<br>antes de <span>construir.</span></h2>
+          <p class="measure-body">La mayoría de los proyectos definen el éxito al final.<br>Yo lo defino al principio.
           </p>
-          <div class="s-q sq-gold"><strong>"¿Qué está bloqueando la adquisición y transferencia — y qué principio
-              científico lo explica?"</strong></div>
-          <div class="s-pills">
-            <span class="s-pill sp-gold">carga cognitiva — Sweller</span>
-            <span class="s-pill sp-gold">identidad y pertenencia</span>
-            <span class="s-pill sp-gold">arquitectura temporal</span>
+          <p class="measure-body">Antes de escribir una línea de contenido ya sé qué conducta necesita cambiar, cómo voy
+            a observarla y qué nivel de evidencia necesito para afirmar que algo ocurrió.</p>
+          <div class="measure-statement"><strong>Si no puedes observarlo,<br><span>no puedes afirmar que
+                ocurrió.</span></strong></div>
+          <p class="measure-body">No me interesa medir horas de capacitación completadas ni porcentaje de avance en un
+            curso. Me interesa medir lo que importa:</p>
+          <div class="chips-block">
+            <div class="chips">
+              <span class="chip">Conducta</span>
+              <span class="chip">Desempeño</span>
+              <span class="chip chip-gold">Transferencia</span>
+              <span class="chip chip-gold">Adopción</span>
+              <span class="chip">Experiencia</span>
+            </div>
+          </div>
+        </div>
+        <div class="levels">
+          <div class="level-card">
+            <div class="level-header">
+              <div class="level-num">N1</div>
+              <div class="level-name">Evaluación formativa</div>
+            </div>
+            <p class="level-body">Detecta fricciones durante la adopción. No es calificación — es calibración.</p>
+            <div class="level-indicators">
+              <div class="level-ind">Frecuencia de uso en la primera semana</div>
+              <div class="level-ind">Tiempo de ejecución vs. benchmark esperado</div>
+              <div class="level-ind">Coherencia entre uso reportado y situación real</div>
+            </div>
+          </div>
+          <div class="level-card">
+            <div class="level-header">
+              <div class="level-num">N2</div>
+              <div class="level-name">Evaluación de desempeño</div>
+            </div>
+            <p class="level-body">Mide si la intervención impacta el comportamiento en contexto real. A las 3–4 semanas.
+            </p>
+            <div class="level-indicators">
+              <div class="level-ind">El participante describe qué activó y por qué</div>
+              <div class="level-ind">Reducción reportada de fricciones en situaciones de presión</div>
+              <div class="level-ind">Aumento en situaciones donde se mantuvo el hilo estratégico</div>
+            </div>
+          </div>
+          <div class="level-card">
+            <div class="level-header">
+              <div class="level-num">N3</div>
+              <div class="level-name">Evaluación de transferencia</div>
+            </div>
+            <p class="level-body">Evalúa la calidad del diseño, no solo el comportamiento del usuario.</p>
+            <div class="level-indicators">
+              <div class="level-ind">El conocimiento estuvo disponible — no recuperado con esfuerzo</div>
+              <div class="level-ind">El diseño promovió agencia, no dependencia</div>
+              <div class="level-ind">Adopción sostenida sin recordatorios externos</div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- bisagra -->
-      <div class="bisagra">
-        <div class="bisagra-icon">⇄</div>
-        <div class="bisagra-text"><strong>La bisagra del método:</strong> el bloqueo identificado lleva directo al
-          principio que lo resuelve — no a una decisión de formato. El formato es consecuencia, nunca punto de partida.
-        </div>
-      </div>
-      <!-- paso 3 -->
-      <div class="step">
-        <div class="s-left">
-          <div class="s-num n3">03</div>
-          <div class="s-conn c1-conn"></div>
-        </div>
-        <div class="s-card c3">
-          <div class="s-tag-step st-green">principio · el que resuelve ese bloqueo</div>
-          <div class="s-title-step stt-dark">¿Qué principio científico desactiva ese bloqueo?</div>
-          <p class="s-body-step sb-green">Cada bloqueo tiene un principio que lo resuelve. La pre-suasión de Cialdini
-            resuelve el acceso cognitivo bajo presión. Bjork resuelve la falta de transferencia. <strong>El principio
-              dicta cuándo, cómo y dónde intervenir</strong> — antes de decidir qué construir.</p>
-          <div class="s-q sq-green"><strong>"¿Qué principio científico me dice exactamente cuándo y cómo
-              intervenir?"</strong></div>
-          <div class="s-pills">
-            <span class="s-pill sp-green">pre-suasión — Cialdini</span>
-            <span class="s-pill sp-green">dificultad deseable — Bjork</span>
-            <span class="s-pill sp-green">motivación intrínseca — Deci & Ryan</span>
-            <span class="s-pill sp-green">efecto Zeigarnik</span>
-          </div>
-        </div>
-      </div>
-      <!-- paso 4 -->
-      <div class="step">
-        <div class="s-left">
-          <div class="s-num n4">04</div>
-          <div class="s-conn"></div>
-        </div>
-        <div class="s-card c4">
-          <div class="s-tag-step st-dk">intervención · la mínima que cambia todo</div>
-          <div class="s-title-step stt-light">¿Qué tipo de intervención activa ese principio en el momento correcto?
-          </div>
-          <p class="s-body-step sb-dk">Solo aquí aparece el formato. Y ya no es una decisión — es una consecuencia
-            lógica de las tres preguntas anteriores. <strong>Lo que define el formato es el bloqueo y el principio, no
-              la preferencia del cliente.</strong></p>
-          <div class="s-q sq-dk"><strong>"¿Cuál es la intervención mínima que activa el principio correcto en el momento
-              exacto?"</strong></div>
-          <div class="s-pills">
-            <span class="s-pill sp-dk">curso narrativo</span>
-            <span class="s-pill sp-dk">hub de desempeño</span>
-            <span class="s-pill sp-dk">simulación experiencial</span>
-            <span class="s-pill sp-dk">auditoría instruccional</span>
-          </div>
-        </div>
+      <div class="measure-close">
+        <p class="measure-close-body">La pregunta ya no es si la intervención existe.<br><strong>La pregunta es si
+            cambió algo.</strong></p>
+        <div class="transition" style="margin-top:0"><b>La evidencia ya está definida.</b> ¿Cómo se ve esto en proyectos
+          reales?</div>
       </div>
     </div>
   </section>
 
-  <!-- PROYECTOS -->
-  <section class="projects" id="proyectos" aria-label="Proyectos seleccionados">
+  <!-- PROJECTS -->
+  <section class="projects" id="proyectos" aria-label="Casos seleccionados">
     <div class="wrap">
-      <div class="proj-header">
+      <header class="section-head">
         <div>
-          <div class="eyebrow">
-            <div class="eyebrow-line"></div>
-            <span class="eyebrow-text">proyectos seleccionados</span>
-          </div>
-          <div class="proj-title">Tres problemas.<br>Tres <span>intervenciones.</span></div>
+          <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">casos seleccionados</span></div>
+          <h2 class="section-title">Tres veces que el problema<br>no era el que <span>parecía.</span></h2>
         </div>
-        <p class="proj-sub">Cada proyecto parte de un diagnóstico — no de un formato. El caso de estudio muestra el
-          pensamiento, no solo el resultado.</p>
-      </div>
-
-      <div class="proj-grid">
-        <a href="https://signal-sales.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card" onclick="gtag('event', 'view_project_signal_sales', {
-    event_category: 'portfolio',
-    event_label: 'signal_sales'
-  })">
-          <div class="pc-img pc-img-1">
-            <div class="pc-badge pb-1">hub de desempeño</div>
-            <div class="pc-name pcn-1">Signal<br><span>Sales</span></div>
+        <p class="section-copy">Cada caso conecta la petición inicial, el hallazgo y la intervención resultante.</p>
+      </header>
+      <div class="project-grid">
+        <a class="project-card" href="https://signal-sales.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <div class="project-top">
+            <div class="project-badge">hub de desempeño</div>
+            <h3 class="project-name">Signal<br><span>Sales</span></h3>
           </div>
-          <div class="pc-body">
-            <div class="pc-problem">acceso cognitivo bajo presión</div>
-            <div class="pc-ttl">El vendedor sabe — pero no puede acceder cuando más lo necesita</div>
-            <p class="pc-desc">Intervención de 3 min pre-reunión basada en pre-suasión, carga cognitiva y priming
-              lingüístico.</p>
-            <div class="pc-tags">
-              <span class="pc-tag">Cialdini</span>
-              <span class="pc-tag">Sweller</span>
-              <span class="pc-tag pc-tag-gold">3 min · B2B</span>
-            </div>
-            <div class="pc-footer">
-              <span class="pc-bloqueo">arquitectura temporal</span>
-              <button class="pc-btn">ver caso →</button>
-            </div>
+          <div class="project-body">
+            <strong>LO QUE PARECÍA</strong>
+            <h3>Los vendedores necesitaban más capacitación.</h3>
+            <p><strong>LO QUE ENCONTRÉ</strong><br>El conocimiento existía, pero era inaccesible bajo presión.</p>
+            <p><strong>LO QUE DISEÑÉ</strong><br>Un sistema de activación cognitiva antes de reuniones.</p>
+            <span class="project-link">ver caso →</span>
           </div>
         </a>
-
-        <a href="https://rediseno-python.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-card"
-          onclick="gtag('event', 'view_project_cisco_python', {
-  event_category: 'portfolio',
-  event_label: 'cisco_python'
-})">
-          <div class="pc-img pc-img-2">
-            <div class="pc-badge pb-2">auditoría + rediseño</div>
-            <div class="pc-name pcn-2">Cisco<br><span>Python</span></div>
+        <a class="project-card" href="https://rediseno-python.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <div class="project-top">
+            <div class="project-badge">auditoría + rediseño</div>
+            <h3 class="project-name">Cisco<br><span>Python</span></h3>
           </div>
-          <div class="pc-body">
-            <div class="pc-problem">el curso empieza por el contenido</div>
-            <div class="pc-ttl">El estudiante nunca supo para qué — nadie le preguntó si Python tenía algo que ver con
-              él</div>
-            <p class="pc-desc">Auditoría de 5 dimensiones con marco teórico + DDI completo de rediseño para el
-              estudiante que el curso ignoró.</p>
-            <div class="pc-tags">
-              <span class="pc-tag">Deci & Ryan</span>
-              <span class="pc-tag">Sweller</span>
-              <span class="pc-tag pc-tag-gold">~2M estudiantes</span>
-            </div>
-            <div class="pc-footer">
-              <span class="pc-bloqueo">relevancia personal ausente</span>
-              <button class="pc-btn">ver caso →</button>
-            </div>
+          <div class="project-body">
+            <strong>LO QUE PARECÍA</strong>
+            <h3>El curso necesitaba explicar mejor el contenido.</h3>
+            <p><strong>LO QUE ENCONTRÉ</strong><br>El estudiante no veía por qué Python era relevante para su
+              trayectoria.</p>
+            <p><strong>LO QUE DISEÑÉ</strong><br>Un recorrido que construye relevancia antes del contenido.</p>
+            <span class="project-link">ver caso →</span>
           </div>
         </a>
-
-        <a href="https://pensamiento-estrategico.vercel.app/" target="_blank" rel="noopener noreferrer"
-          class="proj-card" onclick="gtag('event', 'view_project_pensamiento_estrategico', {
-  event_category: 'portfolio',
-  event_label: 'pensamiento_estrategico'
-})">
-          <div class="pc-img pc-img-3">
-            <div class="pc-badge pb-3">simulación experiencial</div>
-            <div class="pc-name pcn-3">Pensar<br><span>estratégico</span></div>
+        <a class="project-card" href="https://pensamiento-estrategico.vercel.app/" target="_blank"
+          rel="noopener noreferrer">
+          <div class="project-top">
+            <div class="project-badge">simulación experiencial</div>
+            <h3 class="project-name">Pensar<br><span>estratégico</span></h3>
           </div>
-          <div class="pc-body">
-            <div class="pc-problem">bloqueos cognitivos bajo presión</div>
-            <div class="pc-ttl">El cerebro no aprende a pensar diferente leyendo sobre cómo hacerlo</div>
-            <p class="pc-desc">Simulación donde el fallo es el mecanismo de aprendizaje. El contenido aparece cuando el
-              participante lo necesita — no antes.</p>
-            <div class="pc-tags">
-              <span class="pc-tag">Bjork</span>
-              <span class="pc-tag">Kahneman</span>
-              <span class="pc-tag pc-tag-gold">45–90 min</span>
-            </div>
-            <div class="pc-doc-badge">
-              incluye muestra de DDI
-            </div>
-            <div class="pc-footer">
-              <span class="pc-bloqueo">dificultad deseable</span>
-              <button class="pc-btn">ver caso →</button>
-            </div>
+          <div class="project-body">
+            <strong>LO QUE PARECÍA</strong>
+            <h3>Las personas necesitaban aprender conceptos de estrategia.</h3>
+            <p><strong>LO QUE ENCONTRÉ</strong><br>Comprender conceptos no cambiaba las decisiones tomadas bajo presión.
+            </p>
+            <p><strong>LO QUE DISEÑÉ</strong><br>Una simulación donde decidir produce el aprendizaje.</p>
+            <span class="project-link">ver caso →</span>
           </div>
         </a>
       </div>
-
-      <div class="proj-note">
-        <div class="pn-icon">💡</div>
-        <p class="pn-text"><strong>Cada caso de estudio muestra el pensamiento, no solo el resultado.</strong> Las
-          cuatro preguntas del método aplicadas a un problema real — el diagnóstico, el principio científico que lo
-          resuelve y lo que se descartó en el camino.</p>
-      </div>
+      <div class="transition"><b>Los tres resultados nacen de cuestionar la explicación inicial.</b> ¿Por qué debería
+        confiar en esta forma de pensar?</div>
     </div>
   </section>
 
-  <!-- SOBRE MÍ -->
-  <section class="about" id="sobre-mi" aria-label="Sobre Eilyn Ginoe">
+  <!-- ABOUT -->
+  <section class="about" id="sobre-mi" aria-label="Experiencia y fundamentos">
     <div class="wrap">
-      <div class="about-left">
-        <div class="about-logo-wrap">
-          <div class="about-logo-ring">
-            <img src="logo.webp" alt="Logo Eilyn Ginoe Brito" />
-          </div>
-          <div class="about-logo-tag">Eilyn Ginoe · LXD</div>
-        </div>
-        <div class="about-stats">
-          <div class="astat">
-            <div class="astat-num">3<span>+</span></div>
-            <div class="astat-label"><strong>años diseñando experiencias</strong>que cambian conductas</div>
-          </div>
-          <div class="astat">
-            <div class="astat-num">3</div>
-            <div class="astat-label"><strong>marcos científicos aplicados</strong>comportamiento, atención y cognición
-            </div>
-          </div>
-          <div class="astat">
-            <div class="astat-num">3</div>
-            <div class="astat-label"><strong>tipos de intervención</strong>curso, hub de desempeño, simulación</div>
-          </div>
-        </div>
-        <div class="about-tags">
-          <span class="atag">diseño instruccional</span>
-          <span class="atag">LXD</span>
-          <span class="atag">UX de aprendizaje</span>
-          <span class="atag atag-gold">economía de la atención</span>
-          <span class="atag">cambio de comportamiento</span>
-          <span class="atag atag-gold">HTML · CSS · JS</span>
-          <span class="atag">SCORM · xAPI</span>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="eyebrow">
-          <div class="eyebrow-line"></div>
-          <span class="eyebrow-text">sobre mí</span>
-        </div>
-        <div class="about-title">La persona<br>detrás del <span>método.</span></div>
-        <p class="about-p">Empecé estudiando Bioanálisis. Luego me di cuenta de que lo que más me interesaba no era el
-          laboratorio — era entender por qué las personas aprenden de cierta manera y de otras no.</p>
-        <p class="about-p">Hoy diseño experiencias de aprendizaje que combinan <strong>psicología conductual, economía
-            de la atención y diseño UX</strong>. No para hacer cursos más bonitos — sino para que algo en la mente del
-          aprendiz se mueva de verdad.</p>
-        <p class="about-p">He visto cómo muchos cursos corporativos terminan siendo un PDF que nadie vuelve a abrir.
-          <strong>El problema no es de contenido — es de arquitectura del aprendizaje.</strong> Y eso es exactamente lo
-          que diseño.
-        </p>
-        <div class="about-thesis">
-          <div class="at-label">mi tesis</div>
-          <div class="at-text">"La atención no se pide.<br><span>Se diseña."</span></div>
-        </div>
-        <div class="about-cta-row">
-          <a href="#servicios" class="cta-pill-sm">ver qué ofrezco →</a>
-          <button class="cta-ghost-sm"
-            onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">hablemos</button>
-        </div>
-      </div>
-    </div>
-    <div class="about-formation">
-      <div class="wrap">
-        <span class="af-label">formación</span>
-        <div class="af-item">
-          <div class="af-institution">Universidad de Salamanca</div>
-          <div class="af-degree">Certificado profesional · Business Teacher Education</div>
-          <div class="af-year">2023</div>
-        </div>
-        <div class="af-item">
-          <div class="af-institution">Universidad de Oriente</div>
-          <div class="af-degree">Licenciada en Bioanálisis</div>
-          <div class="af-year">2000 — 2005</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section class="services" id="servicios" aria-label="Servicios">
-    <div class="wrap">
-      <div class="srv-header">
+      <div class="about-grid">
         <div>
-          <div class="eyebrow">
-            <div class="eyebrow-line"></div>
-            <span class="eyebrow-text">qué ofrezco</span>
+          <div class="about-logo-wrap">
+            <div class="about-logo-ring">
+              <img src="logo.webp" alt="Logo Eilyn Ginoe Brito" />
+            </div>
+            <div class="about-logo-tag">Eilyn Ginoe · LXD</div>
           </div>
-          <div class="srv-title">No vendo formatos.<br>Resuelvo <span>problemas.</span></div>
+          <div class="astats">
+            <div class="astat">
+              <div class="astat-num">3<span>+</span></div>
+              <div class="astat-label"><strong>años diseñando experiencias</strong>que cambian conductas</div>
+            </div>
+            <div class="astat">
+              <div class="astat-num">3</div>
+              <div class="astat-label"><strong>marcos científicos aplicados</strong>comportamiento, atención y cognición
+              </div>
+            </div>
+            <div class="astat">
+              <div class="astat-num">3</div>
+              <div class="astat-label"><strong>tipos de intervención</strong>curso, hub de desempeño, simulación</div>
+            </div>
+          </div>
+          <div class="chips-block">
+            <div class="chips-label">En qué baso mis decisiones</div>
+            <div class="chips">
+              <span class="chip">Backward Design</span>
+              <span class="chip">Psicología Cognitiva</span>
+              <span class="chip chip-gold">Bjork</span>
+              <span class="chip chip-gold">Sweller</span>
+              <span class="chip chip-gold">Cialdini</span>
+              <span class="chip chip-gold">Deci &amp; Ryan</span>
+              <span class="chip">Economía del comportamiento</span>
+            </div>
+          </div>
         </div>
-        <p class="srv-note">Cada servicio parte del mismo lugar: <strong>el diagnóstico del bloqueo real.</strong> El
-          formato es siempre la última decisión.</p>
-      </div>
-      <div class="srv-grid">
-        <div class="srv-card">
-          <div class="srv-num-lbl snl-green">01</div>
-          <div class="srv-icon si-g">🔍</div>
-          <div class="srv-name sn-dark">Auditoría instruccional</div>
-          <p class="srv-desc sd-g">Analizo tu curso con tres lentes teóricos e identifico exactamente dónde el diseño
-            trabaja en contra del aprendizaje.</p>
-          <span class="srv-for sf-g">para quien tiene un curso que no funciona</span>
-          <div class="srv-del sd-bd-g"><strong>Entregable:</strong> informe de hallazgos con evidencia, marco teórico y
-            propuesta de rediseño por dimensión.</div>
-        </div>
-        <div class="srv-card srv-card-dk">
-          <div class="srv-num-lbl snl-lt">02</div>
-          <div class="srv-icon si-dk">📐</div>
-          <div class="srv-name sn-white">Diseño de e-learning desde cero</div>
-          <p class="srv-desc sd-dk">Desde el diagnóstico del bloqueo hasta el prototipo funcional en HTML/CSS/JS con
-            integración SCORM o xAPI.</p>
-          <span class="srv-for sf-dk">para quien necesita construir algo nuevo</span>
-          <div class="srv-del sd-bd-dk"><strong>Entregable:</strong> DDI completo + prototipo funcional + decisiones de
-            diseño documentadas.</div>
-        </div>
-        <div class="srv-card srv-card-gd">
-          <div class="srv-num-lbl snl-gold">03</div>
-          <div class="srv-icon si-gd">⚡</div>
-          <div class="srv-name sn-ochr">Hub de desempeño</div>
-          <p class="srv-desc sd-gd">Intervenciones justo a tiempo para los momentos de mayor presión. Existe en el
-            espacio entre lo que la persona ya sabe y lo que necesita ejecutar ahora mismo.</p>
-          <span class="srv-for sf-gd">para quien necesita apoyo en el momento crítico</span>
-          <div class="srv-del sd-bd-gd"><strong>Entregable:</strong> herramienta funcional + caso de diseño con
-            principios cognitivos aplicados.</div>
-        </div>
-        <div class="srv-card">
-          <div class="srv-num-lbl snl-green">04</div>
-          <div class="srv-icon si-g">🗺</div>
-          <div class="srv-name sn-dark">Consultoría de estrategia</div>
-          <p class="srv-desc sd-g">Cuando el problema no es un curso — es una arquitectura completa. Diagnostico las
-            fricciones estructurales y diseño la estrategia de intervención.</p>
-          <span class="srv-for sf-g">para líderes de L&D con problemas sistémicos</span>
-          <div class="srv-del sd-bd-g"><strong>Entregable:</strong> diagnóstico estratégico + mapa de intervenciones
-            priorizado + criterios de éxito.</div>
+        <div>
+          <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">por qué confiar en el
+              enfoque</span></div>
+          <h2 class="section-title">Decisiones con<br><span>fundamento.</span></h2>
+          <p>Mi experiencia combina investigación, diseño de experiencias de aprendizaje y construcción de
+            intervenciones digitales. Esa combinación permite seguir el problema desde la evidencia hasta su
+            implementación.</p>
+          <p>Mi formación científica aporta disciplina para observar, formular hipótesis y distinguir una explicación
+            plausible de una conclusión demostrada. La formación educativa convierte ese análisis en decisiones de
+            diseño.</p>
+          <p><strong>Backward Design, Psicología Cognitiva y Economía del comportamiento</strong> justifican las
+            decisiones. Bjork, Sweller, Cialdini y Deci &amp; Ryan ayudan a explicar por qué una intervención puede
+            cambiar atención, transferencia o motivación.</p>
+          <div class="thesis">"La teoría no elige el problema.<br><span>La evidencia lo revela."</span></div>
         </div>
       </div>
+      <div class="about-formation">
+        <div class="about-formation-inner">
+          <span class="af-label">formación</span>
+          <div class="af-item">
+            <div class="af-institution">Universidad de Salamanca</div>
+            <div class="af-degree">Certificado profesional · Business Teacher Education</div>
+            <div class="af-year">2023</div>
+          </div>
+          <div class="af-item">
+            <div class="af-institution">Universidad de Oriente</div>
+            <div class="af-degree">Licenciada en Bioanálisis</div>
+            <div class="af-year">2000 — 2005</div>
+          </div>
+        </div>
+      </div>
+      <div class="transition"><b>El enfoque tiene experiencia, formación y fundamentos detrás.</b> ¿Estamos resolviendo
+        el problema correcto?</div>
     </div>
   </section>
 
-  <!-- SEPARATOR -->
-  <div class="sep-band" aria-hidden="true">
-    <div class="wrap">
-      <div class="sep-title">"¿Tu equipo completa los cursos<br>pero sigue haciendo <span>lo mismo?"</span></div>
-      <p class="sep-body">Ese es exactamente el problema que resuelvo. No con más contenido — con una intervención
-        diseñada desde el bloqueo real.</p>
-    </div>
-  </div>
-
-  <!-- CONTACTO -->
+  <!-- CONTACT -->
   <section class="contact" id="contacto" aria-label="Contacto">
-    <div class="wrap">
-      <div class="contact-left">
-        <div class="eyebrow">
-          <div class="eyebrow-line"></div>
-          <span class="eyebrow-text">hablemos</span>
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow"><i class="eyebrow-line"></i><span class="eyebrow-text">continuemos la investigación</span>
         </div>
-        <div class="c-title">¿Tienes un<br>problema de <span>aprendizaje?</span></div>
-        <p class="c-body">No hace falta que llegues con la solución definida. Llega con el problema. <strong>La primera
-            conversación es para entender qué está bloqueando — no para venderte un formato.</strong></p>
-        <div class="c-question">"¿Qué necesita hacer diferente tu equipo — y <span>qué está impidiendo que lo
-            haga?</span>"</div>
-        <div class="c-actions">
-          <a href="https://calendly.com/eilynginoe/llamada-de-descubrimiento" target="_blank" rel="noopener noreferrer"
-            class="c-btn-s">📅&nbsp;agendar una llamada</a>
-          <a href="https://linkedin.com/in/eilynginoebrito" target="_blank" rel="noopener noreferrer" class="c-btn-s">💼
-            &nbsp;escribirme en linkedin</a>
+        <h2 class="section-title">¿Estamos resolviendo<br>el problema <span>correcto?</span></h2>
+        <p>No hace falta llegar con una solución definida. La primera conversación sirve para separar la petición
+          inicial del problema que realmente está afectando el desempeño.</p>
+        <div class="contact-actions">
+          <a href="https://calendly.com/eilynginoe/llamada-de-descubrimiento" target="_blank"
+            rel="noopener noreferrer">agendar una llamada</a>
+          <a href="https://linkedin.com/in/eilynginoebrito" target="_blank" rel="noopener noreferrer">escribirme en
+            LinkedIn</a>
         </div>
       </div>
-      <div class="c-cards">
-        <div class="c-card">
-          <div class="cc-label">cómo trabajo</div>
-          <div class="cc-title">Primero el diagnóstico</div>
-          <p class="cc-text">Antes de proponer cualquier solución, necesito entender el bloqueo real. La primera sesión
-            es siempre de escucha y análisis.</p>
-        </div>
-        <div class="c-card">
-          <div class="cc-label">qué esperar</div>
-          <div class="cc-title">Decisiones documentadas</div>
-          <p class="cc-text">Cada proyecto incluye documentación del pensamiento de diseño — qué se construyó, qué se
-            descartó y por qué.</p>
-        </div>
-        <div class="c-card">
-          <div class="cc-label">dónde encontrarme</div>
-          <div class="cc-title">México · Remoto</div>
-          <p class="cc-text">Disponible para proyectos de largo plazo o consultorías puntuales en cualquier zona
-            horaria.</p>
-        </div>
-        <div class="c-thesis">
-          <div class="ct-text">"La atención no se pide.<br><span>Se diseña."</span></div>
-        </div>
+      <div class="contact-cards">
+        <article class="contact-card"><span class="label">primer paso</span>
+          <h3>Describir el desempeño</h3>
+          <p>Qué necesita ocurrir, qué ocurre ahora y cuándo aparece la diferencia.</p>
+        </article>
+        <article class="contact-card"><span class="label">segunda mirada</span>
+          <h3>Cuestionar la causa aparente</h3>
+          <p>Revisamos la evidencia antes de aceptar que la respuesta es capacitación.</p>
+        </article>
+        <div class="thesis">"El problema que te piden resolver<br><span>rara vez es el problema real.</span>"</div>
       </div>
     </div>
   </section>
@@ -2587,11 +2142,11 @@
   <footer>
     <div class="wrap">
       <a href="#" class="footer-logo">Eilyn <span>Ginoe</span></a>
-      <span class="footer-copy">© 2026 · diseñadora de experiencias de aprendizaje</span>
+      <span class="footer-copy">© 2026 · investigación, aprendizaje y desempeño</span>
       <ul class="footer-links">
-        <li><a href="#metodo">método</a></li>
-        <li><a href="#proyectos">proyectos</a></li>
-        <li><a href="#sobre-mi">sobre mí</a></li>
+        <li><a href="#sintomas">diagnóstico</a></li>
+        <li><a href="#medicion">medición</a></li>
+        <li><a href="#proyectos">casos</a></li>
         <li><a href="#contacto">contacto</a></li>
       </ul>
     </div>
@@ -2600,12 +2155,9 @@
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.nav-menu');
-
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
+    toggle.addEventListener('click', () => { const open = menu.classList.toggle('active'); toggle.setAttribute('aria-expanded', String(open)) });
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false') }));
   </script>
-
 </body>
 
 </html>
